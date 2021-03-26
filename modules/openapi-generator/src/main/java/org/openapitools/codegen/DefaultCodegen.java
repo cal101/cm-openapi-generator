@@ -4416,7 +4416,9 @@ public class DefaultCodegen implements CodegenConfig {
                                 }).collect(Collectors.toList());
             }
             else {
-                LOGGER.warn("No object schema found for deepObject parameter" + codegenParameter + " deepObject won't have specific properties");
+                LOGGER.warn(
+						"No object schema found for deepObject parameter{} deepObject won't have specific properties",
+						codegenParameter);
             }
         }
 
@@ -4708,7 +4710,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         if (!co.operationId.equals(uniqueName)) {
-            LOGGER.warn("generated unique operationId `" + uniqueName + "`");
+            LOGGER.warn("generated unique operationId `{}`", uniqueName);
         }
         co.operationId = uniqueName;
         co.operationIdLowerCase = uniqueName.toLowerCase(Locale.ROOT);
@@ -4863,7 +4865,7 @@ public class DefaultCodegen implements CodegenConfig {
             final String key = entry.getKey();
             final Schema prop = entry.getValue();
             if (prop == null) {
-                LOGGER.warn("Please report the issue. There shouldn't be null property for " + key);
+                LOGGER.warn("Please report the issue. There shouldn't be null property for {}", key);
             } else {
                 final CodegenProperty cp = fromProperty(key, prop);
                 cp.required = mandatory.contains(key);
