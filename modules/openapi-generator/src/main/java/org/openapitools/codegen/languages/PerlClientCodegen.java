@@ -42,7 +42,7 @@ public class PerlClientCodegen extends DefaultCodegen implements CodegenConfig {
     public static final String MODULE_NAME = "moduleName";
     public static final String MODULE_VERSION = "moduleVersion";
     protected String moduleName = "WWW::OpenAPIClient";
-    protected String modulePathPart = moduleName.replaceAll("::", Matcher.quoteReplacement(File.separator));
+    protected String modulePathPart = moduleName.replace("::", File.separator);
     protected String moduleVersion = "1.0.0";
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
@@ -177,7 +177,7 @@ public class PerlClientCodegen extends DefaultCodegen implements CodegenConfig {
 
         if (additionalProperties.containsKey(MODULE_NAME)) {
             setModuleName((String) additionalProperties.get(MODULE_NAME));
-            setModulePathPart(moduleName.replaceAll("::", Matcher.quoteReplacement(File.separator)));
+            setModulePathPart(moduleName.replace("::", File.separator));
         } else {
             additionalProperties.put(MODULE_NAME, moduleName);
         }
@@ -389,7 +389,7 @@ public class PerlClientCodegen extends DefaultCodegen implements CodegenConfig {
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. phone_number_api.rb => PhoneNumberApi.rb
         return camelize(name) + "Api";

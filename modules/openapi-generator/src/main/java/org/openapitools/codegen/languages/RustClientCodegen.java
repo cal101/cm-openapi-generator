@@ -359,7 +359,7 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
     @Override
     public String toVarName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = sanitizeName(name.replaceAll("-", "_"));
+        name = sanitizeName(name.replace('-', '_'));
 
         // if it's all uppper case, do nothing
         if (name.matches("^[A-Z_]*$"))
@@ -422,7 +422,7 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PetApi.rs => pet_api.rs
         return underscore(name) + "_api";
@@ -631,9 +631,9 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
         // number
         if ("int".equals(datatype) || "double".equals(datatype) || "float".equals(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "Minus");
-            varName = varName.replaceAll("\\+", "Plus");
-            varName = varName.replaceAll("\\.", "Dot");
+            varName = varName.replace("-", "Minus");
+            varName = varName.replace("+", "Plus");
+            varName = varName.replace(".", "Dot");
             return varName;
         }
 

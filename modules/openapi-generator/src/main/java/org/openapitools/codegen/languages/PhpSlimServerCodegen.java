@@ -249,7 +249,7 @@ public class PhpSlimServerCodegen extends AbstractPhpCodegen {
         try {
 
             input = URLEncoder.encode(input, "UTF-8")
-                    .replaceAll("\\+", "%20")
+                    .replace("+", "%20")
                     .replaceAll("\\%2F", "/")
                     .replaceAll("\\%7B", "{") // keep { part of complex placeholders
                     .replaceAll("\\%7D", "}") // } part

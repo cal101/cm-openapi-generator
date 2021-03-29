@@ -165,7 +165,7 @@ public class PythonLegacyClientCodegen extends AbstractPythonCodegen implements 
         } else {
             // default: set project based on package name
             // e.g. petstore_api (package name) => petstore-api (project name)
-            setProjectName(packageName.replaceAll("_", "-"));
+            setProjectName(packageName.replace('_', '-'));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.PACKAGE_VERSION)) {

@@ -212,7 +212,7 @@ public class NimClientCodegen extends DefaultCodegen implements CodegenConfig {
 
     @Override
     public String toModelImport(String name) {
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
         if (importMapping.containsKey(name)) {
             return "model_" + StringUtils.underscore(importMapping.get(name));
         } else {
@@ -222,7 +222,7 @@ public class NimClientCodegen extends DefaultCodegen implements CodegenConfig {
 
     @Override
     public String toApiImport(String name) {
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
         if (importMapping.containsKey(name)) {
             return "api_" + StringUtils.underscore(importMapping.get(name));
         } else {
@@ -232,13 +232,13 @@ public class NimClientCodegen extends DefaultCodegen implements CodegenConfig {
 
     @Override
     public String toModelFilename(String name) {
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
         return "model_" + StringUtils.underscore(name);
     }
 
     @Override
     public String toApiFilename(String name) {
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
         return "api_" + StringUtils.underscore(name);
     }
 

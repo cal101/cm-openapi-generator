@@ -260,7 +260,7 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
     @Override
     public String toParamName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = sanitizeName(name.replaceAll("-", "_"));
+        name = sanitizeName(name.replace('-', '_'));
 
         // if it's all uppper case, do nothing
         if (name.matches("^[A-Z_]*$"))
@@ -322,7 +322,7 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PetApi.r => pet_api.r
         return underscore(name + "_api");
@@ -506,9 +506,9 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
         // number
         if ("int".equals(datatype) || "double".equals(datatype) || "float".equals(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 
@@ -653,7 +653,7 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
                 if (Pattern.compile("\r\n|\r|\n").matcher((String) p.getDefault()).find())
                     return "'''" + p.getDefault() + "'''";
                 else
-                    return "'" + ((String) p.getDefault()).replaceAll("'","\'") + "'";
+                    return "'" + ((String) p.getDefault()).replace('\'','\'') + "'";
             }
         } else if (ModelUtils.isArraySchema(p)) {
             if (p.getDefault() != null) {

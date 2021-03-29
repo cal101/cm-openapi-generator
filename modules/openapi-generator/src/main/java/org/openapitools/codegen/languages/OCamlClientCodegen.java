@@ -487,7 +487,7 @@ public class OCamlClientCodegen extends DefaultCodegen implements CodegenConfig 
     @Override
     public String toVarName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = sanitizeName(name.replaceAll("-", "_"));
+        name = sanitizeName(name.replace('-', '_'));
 
         // snake_case, e.g. PetId => pet_id
         name = underscore(name);
@@ -546,7 +546,7 @@ public class OCamlClientCodegen extends DefaultCodegen implements CodegenConfig 
     @Override
     public String toApiFilename(final String name) {
         // replace - with _ e.g. created-at => created_at
-        final String _name = name.replaceAll("-", "_");
+        final String _name = name.replace('-', '_');
 
         // e.g. PetApi.ml => pet_api.ml
         return underscore(_name) + "_api";

@@ -1037,9 +1037,9 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
                     xPath = xPath.replaceAll("\\{" + param.baseName + "\\}", "\",toPath " + param.paramName + ",\"");
                 }
             }
-            xPath = xPath.replaceAll(",\"\",", ",");
-            xPath = xPath.replaceAll("\"\",", ",");
-            xPath = xPath.replaceAll(",\"\"", ",");
+            xPath = xPath.replace(",\"\",", ",");
+            xPath = xPath.replace("\"\",", ",");
+            xPath = xPath.replace(",\"\"", ",");
             xPath = xPath.replaceAll("^\\[,", "[");
             xPath = xPath.replaceAll(",\\]$", "]");
         }
@@ -1163,7 +1163,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
 
     public String toVarName(String prefix, String name) {
         Boolean hasPrefix = !StringUtils.isBlank(prefix);
-        name = underscore(sanitizeName(name.replaceAll("-", "_")));
+        name = underscore(sanitizeName(name.replace('-', '_')));
         name = camelize(name, !hasPrefix);
         if (hasPrefix) {
             return prefix + name;
@@ -1396,9 +1396,9 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
         // number
         if (num.contains(datatype.toLowerCase(Locale.ROOT))) {
             String varName = "Num" + value;
-            varName = varName.replaceAll("-", "Minus_");
-            varName = varName.replaceAll("\\+", "Plus_");
-            varName = varName.replaceAll("\\.", "_Dot_");
+            varName = varName.replace("-", "Minus_");
+            varName = varName.replace("+", "Plus_");
+            varName = varName.replace(".", "_Dot_");
             return "'" + StringUtils.capitalize(sanitizeName(varName));
         }
 

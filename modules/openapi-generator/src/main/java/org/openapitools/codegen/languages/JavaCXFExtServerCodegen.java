@@ -1344,7 +1344,7 @@ public class JavaCXFExtServerCodegen extends JavaCXFServerCodegen implements CXF
                 try {
                     File testDataFile = new File(testDataFileStr).getCanonicalFile();
                     testDataFileStr = testDataFile.getPath();
-                    additionalProperties.put(TEST_DATA_FILE, testDataFileStr.replaceAll("\\\\", "\\\\\\\\"));
+                    additionalProperties.put(TEST_DATA_FILE, testDataFileStr.replace("\\", "\\\\"));
                     setTestDataFile(testDataFile);
                 } catch (IOException e) {
                     throw new RuntimeException("Failed to canonicalize file " + testDataFileStr, e);
@@ -1370,7 +1370,7 @@ public class JavaCXFExtServerCodegen extends JavaCXFServerCodegen implements CXF
                     File testDataControlFile = new File(testDataControlFileStr).getCanonicalFile();
                     testDataControlFileStr = testDataControlFile.getPath();
                     additionalProperties.put(TEST_DATA_CONTROL_FILE,
-                            testDataControlFileStr.replaceAll("\\\\", "\\\\\\\\"));
+                            testDataControlFileStr.replace("\\", "\\\\"));
                     setTestDataControlFile(testDataControlFile);
                 } catch (IOException e) {
                     throw new RuntimeException("Failed to canonicalize file " + testDataControlFileStr, e);
