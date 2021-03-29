@@ -422,7 +422,7 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
 
         // e.g. PetApi.go => pet_api.go
         return underscore(name);

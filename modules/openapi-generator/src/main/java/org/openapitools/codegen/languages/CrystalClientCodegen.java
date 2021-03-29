@@ -396,7 +396,7 @@ public class CrystalClientCodegen extends DefaultCodegen {
             filename = filename + "_" + apiNameSuffix;
         }
 
-        filename = filename.replaceAll("-", "_");
+        filename = filename.replace('-', '_');
 
         // e.g. PhoneNumberApi.cr => phone_number_api.cr
         return underscore(filename);
@@ -440,9 +440,9 @@ public class CrystalClientCodegen extends DefaultCodegen {
         // number
         if ("Integer".equals(datatype) || "Float".equals(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return NUMERIC_ENUM_PREFIX + varName;
         }
 

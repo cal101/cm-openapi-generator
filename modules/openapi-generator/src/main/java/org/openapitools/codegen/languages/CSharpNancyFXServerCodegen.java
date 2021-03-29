@@ -321,7 +321,7 @@ public class CSharpNancyFXServerCodegen extends AbstractCSharpCodegen {
                 sanitizeName(name)
                         .replaceFirst("^_", "")
                         .replaceFirst("_$", "")
-                        .replaceAll("-", "_"));
+                        .replace('-', '_'));
         final String result;
         if (enumName.matches("\\d.*")) {
             result = "_" + enumName;

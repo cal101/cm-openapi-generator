@@ -244,7 +244,7 @@ public class ErlangClientCodegen extends DefaultCodegen implements CodegenConfig
     @Override
     public String toVarName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = sanitizeName(name.replaceAll("-", "_"));
+        name = sanitizeName(name.replace('-', '_'));
         // for reserved word or word starting with number, append _
         if (isReservedWord(name))
             name = escapeReservedWord(name);
@@ -273,24 +273,24 @@ public class ErlangClientCodegen extends DefaultCodegen implements CodegenConfig
 
     @Override
     public String toModelName(String name) {
-        return this.packageName + "_" + underscore(name.replaceAll("-", "_").replaceAll("\\.", "_"));
+        return this.packageName + "_" + underscore(name.replace('-', '_').replace('.', '_'));
     }
 
     @Override
     public String toApiName(String name) {
-        return this.packageName + "_" + underscore(name.replaceAll("-", "_").replaceAll("\\.", "_"));
+        return this.packageName + "_" + underscore(name.replace('-', '_').replace('.', '_'));
     }
 
     @Override
     public String toModelFilename(String name) {
-        return this.packageName + "_" + underscore(name.replaceAll("\\.", "_"));
+        return this.packageName + "_" + underscore(name.replace('.', '_'));
     }
 
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
         // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
-        name = name.replaceAll("-", "_").replaceAll("\\.", "_");
+        name = name.replace('-', '_').replace('.', '_');
 
         // e.g. PetApi.erl => pet_api.erl
         return this.packageName + "_" + underscore(name) + "_api";
@@ -300,11 +300,11 @@ public class ErlangClientCodegen extends DefaultCodegen implements CodegenConfig
     public String toOperationId(String operationId) {
         // method name cannot use reserved keyword, e.g. if
         if (isReservedWord(operationId)) {
-            LOGGER.warn(operationId + " (reserved word) cannot be used as method name. Renamed to " + underscore(sanitizeName("call_" + operationId)).replaceAll("\\.", "_"));
+            LOGGER.warn(operationId + " (reserved word) cannot be used as method name. Renamed to " + underscore(sanitizeName("call_" + operationId)).replace('.', '_'));
             operationId = "call_" + operationId;
         }
 
-        return underscore(operationId.replaceAll("\\.", "_"));
+        return underscore(operationId.replace('.', '_'));
     }
 
     @Override

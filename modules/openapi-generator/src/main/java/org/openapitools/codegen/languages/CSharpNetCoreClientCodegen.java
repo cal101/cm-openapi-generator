@@ -825,14 +825,14 @@ public class CSharpNetCoreClientCodegen extends AbstractCSharpCodegen {
         if (datatype.startsWith("int") || datatype.startsWith("long") ||
                 datatype.startsWith("double") || datatype.startsWith("float")) {
             String varName = "NUMBER_" + value;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 
         // string
-        String var = value.replaceAll(" ", "_");
+        String var = value.replace(' ', '_');
         var = camelize(var);
         var = var.replaceAll("\\W+", "");
 

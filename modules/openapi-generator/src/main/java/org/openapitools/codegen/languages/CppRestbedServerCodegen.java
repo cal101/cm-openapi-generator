@@ -216,9 +216,9 @@ public class CppRestbedServerCodegen extends AbstractCppCodegen {
         }
 
         additionalProperties.put("modelNamespaceDeclarations", modelPackage.split("\\."));
-        additionalProperties.put("modelNamespace", modelPackage.replaceAll("\\.", "::"));
+        additionalProperties.put("modelNamespace", modelPackage.replace(".", "::"));
         additionalProperties.put("apiNamespaceDeclarations", apiPackage.split("\\."));
-        additionalProperties.put("apiNamespace", apiPackage.replaceAll("\\.", "::"));
+        additionalProperties.put("apiNamespace", apiPackage.replace(".", "::"));
         additionalProperties.put("declspec", declspec);
         additionalProperties.put("defaultInclude", defaultInclude);
         additionalProperties.put(RESERVED_WORD_PREFIX_OPTION, reservedWordPrefix);

@@ -150,7 +150,7 @@ public class DartDioClientCodegen extends AbstractDartCodegen {
                 return null;
             }
             if (ModelUtils.isStringSchema(schema)) {
-                return "'" + schema.getDefault().toString().replaceAll("'", "\\'") + "'";
+                return "'" + schema.getDefault().toString().replace('\'', '\'') + "'";
             }
             return schema.getDefault().toString();
         }

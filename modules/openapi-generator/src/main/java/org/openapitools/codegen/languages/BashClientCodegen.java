@@ -610,7 +610,7 @@ public class BashClientCodegen extends DefaultCodegen implements CodegenConfig {
         /**
          * Replace backticks with normal single quotes.
          */
-        String result = input.replaceAll("`", "'");
+        String result = input.replace('`', '\'');
 
         return result;
     }

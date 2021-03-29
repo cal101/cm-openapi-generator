@@ -574,7 +574,7 @@ public class CLibcurlClientCodegen extends DefaultCodegen implements CodegenConf
         if (isReservedWord(name) || name.matches("^\\d.*")) {
             name = escapeReservedWord(name);
         }
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
         return name;
     }
 
@@ -621,7 +621,7 @@ public class CLibcurlClientCodegen extends DefaultCodegen implements CodegenConf
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PhoneNumberApi.rb => phone_number_api.rb
         return camelize(name) + "API";
@@ -634,7 +634,7 @@ public class CLibcurlClientCodegen extends DefaultCodegen implements CodegenConf
 
     @Override
     public String toApiTestFilename(String name) {
-        return ("test_" + toApiFilename(name)).replaceAll("_", "-");
+        return ("test_" + toApiFilename(name)).replace('_', '-');
     }
 
     @Override
@@ -653,7 +653,7 @@ public class CLibcurlClientCodegen extends DefaultCodegen implements CodegenConf
 
     @Override
     public String toEnumValue(String value, String datatype) {
-        value = value.replaceAll("-", "_");
+        value = value.replace('-', '_');
         if (isReservedWord(value)) {
             value = escapeReservedWord(value);
         }
@@ -677,9 +677,9 @@ public class CLibcurlClientCodegen extends DefaultCodegen implements CodegenConf
         // number
         if ("Integer".equals(datatype) || "Float".equals(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 

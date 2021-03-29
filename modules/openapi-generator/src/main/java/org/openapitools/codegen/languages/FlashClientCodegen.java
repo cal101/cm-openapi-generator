@@ -195,7 +195,7 @@ public class FlashClientCodegen extends DefaultCodegen implements CodegenConfig 
     }
 
     private static String dropDots(String str) {
-        return str.replaceAll("\\.", "_");
+        return str.replace('.', '_');
     }
 
     @Override
@@ -288,7 +288,7 @@ public class FlashClientCodegen extends DefaultCodegen implements CodegenConfig 
     @Override
     public String toVarName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // if it's all uppper case, convert to lower case
         if (name.matches("^[A-Z_]*$")) {
@@ -345,7 +345,7 @@ public class FlashClientCodegen extends DefaultCodegen implements CodegenConfig 
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PhoneNumberApi.rb => phone_number_api.rb
         return camelize(name) + "Api";
