@@ -1409,11 +1409,13 @@ public class JavaCXFExtServerCodegen extends JavaCXFServerCodegen implements CXF
         }
     }
 
-    public void setGenerateOperationBody(boolean generateOperationBody) {
+    @Override
+	public void setGenerateOperationBody(boolean generateOperationBody) {
         this.generateOperationBody = generateOperationBody;
     }
 
-    public void setLoadTestDataFromFile(boolean loadTestDataFromFile) {
+    @Override
+	public void setLoadTestDataFromFile(boolean loadTestDataFromFile) {
         this.loadTestDataFromFile = loadTestDataFromFile;
     }
 
@@ -1421,11 +1423,13 @@ public class JavaCXFExtServerCodegen extends JavaCXFServerCodegen implements CXF
         this.supportMultipleSpringServices = supportMultipleSpringServices;
     }
 
-    public void setTestDataControlFile(File testDataControlFile) {
+    @Override
+	public void setTestDataControlFile(File testDataControlFile) {
         this.testDataControlFile = testDataControlFile;
     }
 
-    public void setTestDataFile(File testDataFile) {
+    @Override
+	public void setTestDataFile(File testDataFile) {
         this.testDataFile = testDataFile;
     }
 

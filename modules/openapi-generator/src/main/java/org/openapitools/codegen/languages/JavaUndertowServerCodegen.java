@@ -188,7 +188,8 @@ public class JavaUndertowServerCodegen extends AbstractJavaCodegen {
         return objs;
     }
 
-    public String apiFilename(String templateName, String tag) {
+    @Override
+	public String apiFilename(String templateName, String tag) {
         String result = super.apiFilename(templateName, tag);
 
         if (templateName.endsWith("api.mustache")) {

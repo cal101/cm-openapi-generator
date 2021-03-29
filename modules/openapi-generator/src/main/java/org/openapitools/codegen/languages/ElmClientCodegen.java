@@ -47,7 +47,8 @@ public class ElmClientCodegen extends DefaultCodegen implements CodegenConfig {
     protected String packageName = "openapi";
     protected String packageVersion = "1.0.0";
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
@@ -56,7 +57,8 @@ public class ElmClientCodegen extends DefaultCodegen implements CodegenConfig {
         return "elm";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates an Elm client library.";
     }
 
@@ -269,7 +271,8 @@ public class ElmClientCodegen extends DefaultCodegen implements CodegenConfig {
         }
     }
 
-    @SuppressWarnings({"static-method", "unchecked"})
+    @Override
+	@SuppressWarnings({"static-method", "unchecked"})
     public Map<String, Object> postProcessAllModels(final Map<String, Object> orgObjs) {
         final Map<String, Object> objs = super.postProcessAllModels(orgObjs);
 
@@ -391,7 +394,8 @@ public class ElmClientCodegen extends DefaultCodegen implements CodegenConfig {
     }
 
     static class ParameterSorter implements Comparator<CodegenParameter> {
-        public int compare(final CodegenParameter p1, final CodegenParameter p2) {
+        @Override
+		public int compare(final CodegenParameter p1, final CodegenParameter p2) {
             return index(p1) - index(p2);
         }
 

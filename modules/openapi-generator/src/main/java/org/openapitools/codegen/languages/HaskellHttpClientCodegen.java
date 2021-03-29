@@ -138,15 +138,18 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
 
     final private static Pattern CONTAINS_JSON_MIME_PATTERN = Pattern.compile("(?i)application/.*json(;.*)?");
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "haskell-http-client";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a Haskell http-client library.";
     }
 
@@ -1191,7 +1194,8 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
         return toTypeName("Model", name);
     }
 
-    public String toApiName(String name) {
+    @Override
+	public String toApiName(String name) {
         if (name.length() == 0) {
             return "Default";
         }
@@ -1416,7 +1420,8 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
     }
 
     // override with any special text escaping logic
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String escapeText(String input) {
         if (input == null) {
             return input;

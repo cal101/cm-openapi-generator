@@ -168,7 +168,8 @@ public class JavaResteasyServerCodegen extends AbstractJavaJAXRSServerCodegen im
         return objs;
     }
 
-    public void setGenerateJbossDeploymentDescriptor(boolean generateJbossDeploymentDescriptor) {
+    @Override
+	public void setGenerateJbossDeploymentDescriptor(boolean generateJbossDeploymentDescriptor) {
         this.generateJbossDeploymentDescriptor = generateJbossDeploymentDescriptor;
     }
 }

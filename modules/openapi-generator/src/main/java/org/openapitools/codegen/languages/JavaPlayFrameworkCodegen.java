@@ -278,7 +278,8 @@ public class JavaPlayFrameworkCodegen extends AbstractJavaCodegen implements Bea
         this.useInterfaces = useInterfaces;
     }
 
-    public void setUseBeanValidation(boolean useBeanValidation) {
+    @Override
+	public void setUseBeanValidation(boolean useBeanValidation) {
         this.useBeanValidation = useBeanValidation;
     }
 
@@ -294,7 +295,8 @@ public class JavaPlayFrameworkCodegen extends AbstractJavaCodegen implements Bea
         this.useSwaggerUI = useSwaggerUI;
     }
 
-    public void setSupportAsync(boolean supportAsync) {
+    @Override
+	public void setSupportAsync(boolean supportAsync) {
         this.supportAsync = supportAsync;
     }
 

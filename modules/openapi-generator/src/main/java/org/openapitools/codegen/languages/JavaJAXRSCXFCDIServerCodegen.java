@@ -102,7 +102,8 @@ public class JavaJAXRSCXFCDIServerCodegen extends JavaJAXRSSpecServerCodegen imp
                 + "Apache CXF runtime and a Java EE runtime with CDI enabled.";
     }
 
-    public void setUseBeanValidation(boolean useBeanValidation) {
+    @Override
+	public void setUseBeanValidation(boolean useBeanValidation) {
         this.useBeanValidation = useBeanValidation;
     }
 }

@@ -157,15 +157,18 @@ public class JavaResteasyEapServerCodegen extends AbstractJavaJAXRSServerCodegen
         return objs;
     }
 
-    public void setUseBeanValidation(boolean useBeanValidation) {
+    @Override
+	public void setUseBeanValidation(boolean useBeanValidation) {
         this.useBeanValidation = useBeanValidation;
     }
 
-    public void setGenerateJbossDeploymentDescriptor(boolean generateJbossDeploymentDescriptor) {
+    @Override
+	public void setGenerateJbossDeploymentDescriptor(boolean generateJbossDeploymentDescriptor) {
         this.generateJbossDeploymentDescriptor = generateJbossDeploymentDescriptor;
     }
 
-    public void setUseSwaggerFeature(boolean useSwaggerFeature) {
+    @Override
+	public void setUseSwaggerFeature(boolean useSwaggerFeature) {
         this.useSwaggerFeature = useSwaggerFeature;
     }
 }

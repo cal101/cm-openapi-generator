@@ -255,76 +255,93 @@ public class JavaCXFServerCodegen extends AbstractJavaJAXRSServerCodegen
         return "Generates a Java JAXRS Server application based on Apache CXF framework.";
     }
 
-    public void setGenerateSpringApplication(boolean generateSpringApplication) {
+    @Override
+	public void setGenerateSpringApplication(boolean generateSpringApplication) {
         this.generateSpringApplication = generateSpringApplication;
     }
 
-    public void setUseSpringAnnotationConfig(boolean useSpringAnnotationConfig) {
+    @Override
+	public void setUseSpringAnnotationConfig(boolean useSpringAnnotationConfig) {
         this.useSpringAnnotationConfig = useSpringAnnotationConfig;
     }
 
-    public void setUseSwaggerFeature(boolean useSwaggerFeature) {
+    @Override
+	public void setUseSwaggerFeature(boolean useSwaggerFeature) {
         this.useSwaggerFeature = useSwaggerFeature;
     }
 
 
-    public void setUseWadlFeature(boolean useWadlFeature) {
+    @Override
+	public void setUseWadlFeature(boolean useWadlFeature) {
         this.useWadlFeature = useWadlFeature;
     }
 
 
-    public void setUseMultipartFeature(boolean useMultipartFeature) {
+    @Override
+	public void setUseMultipartFeature(boolean useMultipartFeature) {
         this.useMultipartFeature = useMultipartFeature;
     }
 
 
-    public void setUseGzipFeature(boolean useGzipFeature) {
+    @Override
+	public void setUseGzipFeature(boolean useGzipFeature) {
         this.useGzipFeature = useGzipFeature;
     }
 
 
-    public void setUseLoggingFeature(boolean useLoggingFeature) {
+    @Override
+	public void setUseLoggingFeature(boolean useLoggingFeature) {
         this.useLoggingFeature = useLoggingFeature;
     }
 
 
-    public void setUseBeanValidationFeature(boolean useBeanValidationFeature) {
+    @Override
+	public void setUseBeanValidationFeature(boolean useBeanValidationFeature) {
         this.useBeanValidationFeature = useBeanValidationFeature;
     }
 
-    public void setGenerateSpringBootApplication(boolean generateSpringBootApplication) {
+    @Override
+	public void setGenerateSpringBootApplication(boolean generateSpringBootApplication) {
         this.generateSpringBootApplication = generateSpringBootApplication;
     }
 
-    public void setGenerateJbossDeploymentDescriptor(boolean generateJbossDeploymentDescriptor) {
+    @Override
+	public void setGenerateJbossDeploymentDescriptor(boolean generateJbossDeploymentDescriptor) {
         this.generateJbossDeploymentDescriptor = generateJbossDeploymentDescriptor;
     }
 
-    public void setUseGzipFeatureForTests(boolean useGzipFeatureForTests) {
+    @Override
+	public void setUseGzipFeatureForTests(boolean useGzipFeatureForTests) {
         this.useGzipFeatureForTests = useGzipFeatureForTests;
     }
 
-    public void setUseLoggingFeatureForTests(boolean useLoggingFeatureForTests) {
+    @Override
+	public void setUseLoggingFeatureForTests(boolean useLoggingFeatureForTests) {
         this.useLoggingFeatureForTests = useLoggingFeatureForTests;
     }
 
-    public void setUseSwaggerUI(boolean useSwaggerUI) {
+    @Override
+	public void setUseSwaggerUI(boolean useSwaggerUI) {
         this.useSwaggerUI = useSwaggerUI;
     }
 
-    public void setAddConsumesProducesJson(boolean addConsumesProducesJson) {
+    @Override
+	public void setAddConsumesProducesJson(boolean addConsumesProducesJson) {
         this.addConsumesProducesJson = addConsumesProducesJson;
     }
 
-    public void setUseAnnotatedBasePath(boolean useAnnotatedBasePath) {
+    @Override
+	public void setUseAnnotatedBasePath(boolean useAnnotatedBasePath) {
         this.useAnnotatedBasePath = useAnnotatedBasePath;
     }
 
-    public void setGenerateNonSpringApplication(boolean generateNonSpringApplication) {
+    @Override
+	public void setGenerateNonSpringApplication(boolean generateNonSpringApplication) {
         this.generateNonSpringApplication = generateNonSpringApplication;
     }
 
-    public void setUseGenericResponse(boolean useGenericResponse) {
+    @Override
+	public void setUseGenericResponse(boolean useGenericResponse) {
         this.useGenericResponse = useGenericResponse;
     }
 

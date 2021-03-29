@@ -942,15 +942,18 @@ public class JavaClientCodegen extends AbstractJavaCodegen
         this.parcelableModel = parcelableModel;
     }
 
-    public void setUseBeanValidation(boolean useBeanValidation) {
+    @Override
+	public void setUseBeanValidation(boolean useBeanValidation) {
         this.useBeanValidation = useBeanValidation;
     }
 
-    public void setPerformBeanValidation(boolean performBeanValidation) {
+    @Override
+	public void setPerformBeanValidation(boolean performBeanValidation) {
         this.performBeanValidation = performBeanValidation;
     }
 
-    public void setUseGzipFeature(boolean useGzipFeature) {
+    @Override
+	public void setUseGzipFeature(boolean useGzipFeature) {
         this.useGzipFeature = useGzipFeature;
     }
 

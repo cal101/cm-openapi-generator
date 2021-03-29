@@ -116,7 +116,8 @@ public class JavaVertXServerCodegen extends AbstractJavaCodegen {
      * @return the CodegenType for this generator
      * @see org.openapitools.codegen.CodegenType
      */
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 
@@ -126,7 +127,8 @@ public class JavaVertXServerCodegen extends AbstractJavaCodegen {
      *
      * @return the friendly name for the generator
      */
-    public String getName() {
+    @Override
+	public String getName() {
         return "java-vertx";
     }
 
@@ -136,7 +138,8 @@ public class JavaVertXServerCodegen extends AbstractJavaCodegen {
      *
      * @return A string value for the help message
      */
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a java-Vert.X Server library.";
     }
 

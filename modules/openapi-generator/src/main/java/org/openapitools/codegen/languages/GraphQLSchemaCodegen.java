@@ -35,11 +35,13 @@ public class GraphQLSchemaCodegen extends AbstractGraphQLCodegen implements Code
         return CodegenType.SCHEMA;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "graphql-schema";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates GraphQL schema files (beta)";
     }
 

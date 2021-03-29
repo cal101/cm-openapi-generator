@@ -91,20 +91,24 @@ public class JavaPKMSTServerCodegen extends AbstractJavaCodegen {
         }
     }
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "java-pkmst";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a PKMST SpringBoot Server application using the SpringFox integration."
                 + " Also enables EurekaServerClient / Zipkin / Spring-Boot admin";
     }
 
-    public void processOpts() {
+    @Override
+	public void processOpts() {
         super.processOpts();
         if (this.additionalProperties.containsKey("basePackage")) {
             this.setBasePackage((String) this.additionalProperties.get("basePackage"));
@@ -325,11 +329,13 @@ public class JavaPKMSTServerCodegen extends AbstractJavaCodegen {
                         }
                         doDataTypeAssignment(resp.dataType, new DataTypeAssigner() {
 
-                            public void setReturnType(final String returnType) {
+                            @Override
+							public void setReturnType(final String returnType) {
                                 resp.dataType = returnType;
                             }
 
-                            public void setReturnContainer(final String returnContainer) {
+                            @Override
+							public void setReturnContainer(final String returnContainer) {
                                 resp.containerType = returnContainer;
                             }
                         });
@@ -338,11 +344,13 @@ public class JavaPKMSTServerCodegen extends AbstractJavaCodegen {
 
                 doDataTypeAssignment(operation.returnType, new DataTypeAssigner() {
 
-                    public void setReturnType(final String returnType) {
+                    @Override
+					public void setReturnType(final String returnType) {
                         operation.returnType = returnType;
                     }
 
-                    public void setReturnContainer(final String returnContainer) {
+                    @Override
+					public void setReturnContainer(final String returnContainer) {
                         operation.returnContainer = returnContainer;
                     }
                 });

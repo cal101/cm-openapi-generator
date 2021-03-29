@@ -73,15 +73,18 @@ public class JavaVertXWebServerCodegen extends AbstractJavaCodegen {
         typeMapping.put("DateTime", "String");
     }
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "java-vertx-web";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a Java Vert.x-Web Server (beta).";
     }
 

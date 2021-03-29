@@ -43,15 +43,18 @@ public class ErlangClientCodegen extends DefaultCodegen implements CodegenConfig
     protected String packageVersion = "1.0.0";
     protected String sourceFolder = "src";
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "erlang-client";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates an Erlang client library (beta).";
     }
 

@@ -316,7 +316,8 @@ public class GoClientCodegen extends AbstractGoCodegen {
         return camelize(toModel(name, false));
     }
 
-    public String escapeReservedWord(String name) {
+    @Override
+	public String escapeReservedWord(String name) {
         if (this.reservedWordsMappings().containsKey(name)) {
             return this.reservedWordsMappings().get(name);
         }
