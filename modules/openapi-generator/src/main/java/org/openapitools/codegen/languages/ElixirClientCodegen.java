@@ -324,7 +324,7 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
                 Map<String, String> firstType = eco.consumes.get(0);
                 if (firstType != null) {
                     if ("multipart/form-data".equals(firstType.get("mediaType"))) {
-                        eco.isMultipart = Boolean.TRUE;
+                        eco.isMultipart = true;
                     }
                 }
             }

@@ -59,8 +59,8 @@ public abstract class AbstractPythonConnexionServerCodegen extends AbstractPytho
     protected String defaultController;
     protected Map<Character, String> regexModifiers;
     protected boolean fixBodyName;
-    protected boolean featureCORS = Boolean.FALSE;
-    protected boolean useNose = Boolean.FALSE;
+    protected boolean featureCORS = false;
+    protected boolean useNose = false;
     protected String pythonSrcRoot;
 
     public AbstractPythonConnexionServerCodegen(String templateDirectory, boolean fixBodyNameValue) {
@@ -617,7 +617,7 @@ public abstract class AbstractPythonConnexionServerCodegen extends AbstractPytho
                             || consume.get(MEDIA_TYPE).endsWith("+json"))) {
                         skipTests.put("reason", consume.get(MEDIA_TYPE) + " not supported by Connexion");
                         if ("multipart/form-data".equals(consume.get(MEDIA_TYPE))) {
-                            operation.isMultipart = Boolean.TRUE;
+                            operation.isMultipart = true;
                         }
                     }
                     operation.vendorExtensions.put("x-prefered-consume", consume);
@@ -626,7 +626,7 @@ public abstract class AbstractPythonConnexionServerCodegen extends AbstractPytho
                     skipTests.put("reason", "Connexion does not support multiple consummes. See https://github.com/zalando/connexion/pull/760");
                     operation.vendorExtensions.put("x-prefered-consume", consume);
                     if ("multipart/form-data".equals(consume.get(MEDIA_TYPE))) {
-                        operation.isMultipart = Boolean.TRUE;
+                        operation.isMultipart = true;
                     }
                 }
             } else {

@@ -146,7 +146,7 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
         typeMapping.put("UUID", "Guid");
         typeMapping.put("URI", "string");
 
-        setSupportNullable(Boolean.TRUE);
+        setSupportNullable(true);
 
         // CLI options
         addOption(CodegenConstants.PACKAGE_DESCRIPTION,

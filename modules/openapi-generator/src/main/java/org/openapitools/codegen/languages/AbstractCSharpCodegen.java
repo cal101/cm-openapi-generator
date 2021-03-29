@@ -76,7 +76,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
     protected Set<String> mapTypes;
 
     // true if support nullable type
-    protected boolean supportNullable = Boolean.FALSE;
+    protected boolean supportNullable = false;
 
     // nullable type
     protected Set<String> nullableType = new HashSet<String>();

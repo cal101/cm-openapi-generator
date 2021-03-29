@@ -2508,7 +2508,7 @@ public class DefaultCodegen implements CodegenConfig {
             }
 
             if (Boolean.TRUE.equals(schema.getNullable())) {
-                m.isNullable = Boolean.TRUE;
+                m.isNullable = true;
             }
             // end of code block for composed schema
         } else {
@@ -2525,37 +2525,37 @@ public class DefaultCodegen implements CodegenConfig {
             } else if (ModelUtils.isIntegerSchema(schema)) { // integer type
                 // NOTE: Integral schemas as CodegenModel is a rare use case and may be removed at a later date.
 
-                m.isNumeric = Boolean.TRUE;
+                m.isNumeric = true;
                 if (ModelUtils.isLongSchema(schema)) { // int64/long format
-                    m.isLong = Boolean.TRUE;
+                    m.isLong = true;
                 } else { // int32 format
-                    m.isInteger = Boolean.TRUE;
+                    m.isInteger = true;
                 }
             } else if (ModelUtils.isDateTimeSchema(schema)) {
                 // NOTE: DateTime schemas as CodegenModel is a rare use case and may be removed at a later date.
-                m.isDateTime = Boolean.TRUE;
+                m.isDateTime = true;
             } else if (ModelUtils.isDateSchema(schema)) {
                 // NOTE: Date schemas as CodegenModel is a rare use case and may be removed at a later date.
-                m.isDate = Boolean.TRUE;
+                m.isDate = true;
             } else if (ModelUtils.isStringSchema(schema)) {
                 // NOTE: String schemas as CodegenModel is a rare use case and may be removed at a later date.
-                m.isString = Boolean.TRUE;
+                m.isString = true;
             } else if (ModelUtils.isNumberSchema(schema)) {
                 // NOTE: Number schemas as CodegenModel is a rare use case and may be removed at a later date.
-                m.isNumeric = Boolean.TRUE;
+                m.isNumeric = true;
                 if (ModelUtils.isFloatSchema(schema)) { // float
-                    m.isFloat = Boolean.TRUE;
+                    m.isFloat = true;
                 } else if (ModelUtils.isDoubleSchema(schema)) { // double
-                    m.isDouble = Boolean.TRUE;
+                    m.isDouble = true;
                 } else { // type is number and without format
-                    m.isNumber = Boolean.TRUE;
+                    m.isNumber = true;
                 }
             } else if (ModelUtils.isFreeFormObject(openAPI, schema)) {
                 addAdditionPropertiesToCodeGenModel(m, schema);
             }
 
             if (Boolean.TRUE.equals(schema.getNullable())) {
-                m.isNullable = Boolean.TRUE;
+                m.isNullable = true;
             }
 
             // passing null to allProperties and allRequired as there's no parent
@@ -3185,11 +3185,11 @@ public class DefaultCodegen implements CodegenConfig {
 
         String type = getSchemaType(p);
         if (ModelUtils.isIntegerSchema(p)) { // integer type
-            property.isNumeric = Boolean.TRUE;
+            property.isNumeric = true;
             if (ModelUtils.isLongSchema(p)) { // int64/long format
-                property.isLong = Boolean.TRUE;
+                property.isLong = true;
             } else { // int32 format
-                property.isInteger = Boolean.TRUE;
+                property.isInteger = true;
             }
 
         } else if (ModelUtils.isBooleanSchema(p)) { // boolean type
@@ -3228,13 +3228,13 @@ public class DefaultCodegen implements CodegenConfig {
             property.pattern = toRegularExpression(p.getPattern());
 
         } else if (ModelUtils.isNumberSchema(p)) {
-            property.isNumeric = Boolean.TRUE;
+            property.isNumeric = true;
             if (ModelUtils.isFloatSchema(p)) { // float
-                property.isFloat = Boolean.TRUE;
+                property.isFloat = true;
             } else if (ModelUtils.isDoubleSchema(p)) { // double
-                property.isDouble = Boolean.TRUE;
+                property.isDouble = true;
             } else { // type is number and without format
-                property.isNumber = Boolean.TRUE;
+                property.isNumber = true;
             }
 
         } else if (isFreeFormObject(p)) {
@@ -3745,10 +3745,10 @@ public class DefaultCodegen implements CodegenConfig {
 
                 op.responses.add(r);
                 if (Boolean.TRUE.equals(r.isBinary) && Boolean.TRUE.equals(r.is2xx) && Boolean.FALSE.equals(op.isResponseBinary)) {
-                    op.isResponseBinary = Boolean.TRUE;
+                    op.isResponseBinary = true;
                 }
                 if (Boolean.TRUE.equals(r.isFile) && Boolean.TRUE.equals(r.is2xx) && Boolean.FALSE.equals(op.isResponseFile)) {
-                    op.isResponseFile = Boolean.TRUE;
+                    op.isResponseFile = true;
                 }
             }
             op.responses.sort((a, b) -> {
@@ -5573,7 +5573,7 @@ public class DefaultCodegen implements CodegenConfig {
 
     public boolean convertPropertyToBoolean(String propertyKey) {
         final Object booleanValue = additionalProperties.get(propertyKey);
-        boolean result = Boolean.FALSE;
+        boolean result = false;
         if (booleanValue instanceof Boolean) {
             result = (Boolean) booleanValue;
         } else if (booleanValue instanceof String) {
@@ -5698,7 +5698,7 @@ public class DefaultCodegen implements CodegenConfig {
                 Map<String, String> mediaType = new HashMap<>();
                 mediaType.put("mediaType", encodedKey);
                 codegenOperation.produces.add(mediaType);
-                codegenOperation.hasProduces = Boolean.TRUE;
+                codegenOperation.hasProduces = true;
             }
         }
     }
@@ -5835,7 +5835,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         ModelUtils.syncValidationProperties(propertySchema, codegenProperty);
 
-        codegenParameter.isFormParam = Boolean.TRUE;
+        codegenParameter.isFormParam = true;
         codegenParameter.baseName = codegenProperty.baseName;
         codegenParameter.paramName = toParamName((codegenParameter.baseName));
         codegenParameter.baseType = codegenProperty.baseType;
@@ -5850,7 +5850,7 @@ public class DefaultCodegen implements CodegenConfig {
             codegenParameter.vendorExtensions = codegenProperty.getVendorExtensions();
         }
         if (propertySchema.getRequired() != null && !propertySchema.getRequired().isEmpty() && propertySchema.getRequired().contains(codegenProperty.baseName)) {
-            codegenParameter.required = Boolean.TRUE;
+            codegenParameter.required = true;
         }
 
         // non-array/map
@@ -6000,8 +6000,8 @@ public class DefaultCodegen implements CodegenConfig {
         codegenParameter.baseName = "UNKNOWN_BASE_NAME";
         codegenParameter.paramName = "UNKNOWN_PARAM_NAME";
         codegenParameter.description = escapeText(body.getDescription());
-        codegenParameter.required = body.getRequired() != null ? body.getRequired() : Boolean.FALSE;
-        codegenParameter.isBodyParam = Boolean.TRUE;
+        codegenParameter.required = body.getRequired() != null ? body.getRequired() : false;
+        codegenParameter.isBodyParam = true;
         if (body.getExtensions() != null) {
             codegenParameter.vendorExtensions.putAll(body.getExtensions());
         }
@@ -6054,8 +6054,8 @@ public class DefaultCodegen implements CodegenConfig {
                 codegenParameter.mostInnerItems = codegenProperty.mostInnerItems;
                 codegenParameter.dataType = getTypeDeclaration(schema);
                 codegenParameter.baseType = getSchemaType(inner);
-                codegenParameter.isContainer = Boolean.TRUE;
-                codegenParameter.isMap = Boolean.TRUE;
+                codegenParameter.isContainer = true;
+                codegenParameter.isMap = true;
                 codegenParameter.isNullable = codegenProperty.isNullable;
 
                 setParameterBooleanFlagWithCodegenProperty(codegenParameter, codegenProperty);
@@ -6097,8 +6097,8 @@ public class DefaultCodegen implements CodegenConfig {
                 codegenParameter.mostInnerItems = codegenProperty.mostInnerItems;
                 codegenParameter.dataType = getTypeDeclaration(arraySchema);
                 codegenParameter.baseType = getSchemaType(inner);
-                codegenParameter.isContainer = Boolean.TRUE;
-                codegenParameter.isArray = Boolean.TRUE;
+                codegenParameter.isContainer = true;
+                codegenParameter.isArray = true;
                 codegenParameter.isNullable = codegenProperty.isNullable;
 
                 setParameterBooleanFlagWithCodegenProperty(codegenParameter, codegenProperty);

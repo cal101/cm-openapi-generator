@@ -85,16 +85,16 @@ public class CSharpNetCoreClientCodegen extends AbstractCSharpCodegen {
     // Defines nuget identifiers for target framework
     protected String targetFrameworkNuget = targetFramework;
 
-    protected boolean supportsRetry = Boolean.TRUE;
-    protected boolean supportsAsync = Boolean.TRUE;
-    protected boolean netStandard = Boolean.FALSE;
+    protected boolean supportsRetry = true;
+    protected boolean supportsAsync = true;
+    protected boolean netStandard = false;
 
-    protected boolean validatable = Boolean.TRUE;
+    protected boolean validatable = true;
     protected Map<Character, String> regexModifiers;
     // By default, generated code is considered public
-    protected boolean nonPublicApi = Boolean.FALSE;
+    protected boolean nonPublicApi = false;
 
-    protected boolean caseInsensitiveResponseHeaders = Boolean.FALSE;
+    protected boolean caseInsensitiveResponseHeaders = false;
     protected String releaseNote = "Minor update";
     protected String licenseId;
     protected String packageTags;
@@ -154,7 +154,7 @@ public class CSharpNetCoreClientCodegen extends AbstractCSharpCodegen {
         typeMapping.put("URI", "string");
         typeMapping.put("AnyType", "Object");
 
-        setSupportNullable(Boolean.TRUE);
+        setSupportNullable(true);
         hideGenerationTimestamp = Boolean.TRUE;
         supportsInheritance = true;
         modelTemplateFiles.put("model.mustache", ".cs");

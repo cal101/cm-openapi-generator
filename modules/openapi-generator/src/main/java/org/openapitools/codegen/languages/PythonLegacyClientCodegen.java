@@ -39,7 +39,7 @@ public class PythonLegacyClientCodegen extends AbstractPythonCodegen implements 
     protected String packageUrl;
     protected String apiDocPath = "docs/";
     protected String modelDocPath = "docs/";
-    protected boolean useNose = Boolean.FALSE;
+    protected boolean useNose = false;
 
     protected Map<Character, String> regexModifiers;
 

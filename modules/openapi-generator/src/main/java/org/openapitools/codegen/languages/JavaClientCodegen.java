@@ -615,7 +615,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
                     if (operation.hasConsumes == Boolean.TRUE) {
 
                         if (isMultipartType(operation.consumes)) {
-                            operation.isMultipart = Boolean.TRUE;
+                            operation.isMultipart = true;
                         } else {
                             operation.prioritizedContentTypes = prioritizeContentTypes(operation.consumes);
                         }

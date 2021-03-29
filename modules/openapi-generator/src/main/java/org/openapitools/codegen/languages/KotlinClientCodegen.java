@@ -639,7 +639,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                 // set multipart against all relevant operations
                 if (operation.hasConsumes == Boolean.TRUE) {
                     if (isMultipartType(operation.consumes)) {
-                        operation.isMultipart = Boolean.TRUE;
+                        operation.isMultipart = true;
                     }
                 }
 

@@ -182,7 +182,7 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
                     Map<String, String> firstType = operation.consumes.get(0);
                     if (firstType != null) {
                         if ("multipart/form-data".equals(firstType.get("mediaType"))) {
-                            operation.isMultipart = Boolean.TRUE;
+                            operation.isMultipart = true;
                         }
                     }
                 }

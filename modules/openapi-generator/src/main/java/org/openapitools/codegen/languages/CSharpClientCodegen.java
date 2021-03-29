@@ -63,23 +63,23 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
 
     // Defines nuget identifiers for target framework
     protected String targetFrameworkNuget = "net45";
-    protected boolean supportsAsync = Boolean.TRUE;
-    protected boolean supportsUWP = Boolean.FALSE;
-    protected boolean netStandard = Boolean.FALSE;
-    protected boolean generatePropertyChanged = Boolean.FALSE;
+    protected boolean supportsAsync = true;
+    protected boolean supportsUWP = false;
+    protected boolean netStandard = false;
+    protected boolean generatePropertyChanged = false;
 
-    protected boolean validatable = Boolean.TRUE;
+    protected boolean validatable = true;
     protected Map<Character, String> regexModifiers;
     protected final Map<String, String> frameworks;
 
     // By default, generated code is considered public
-    protected boolean nonPublicApi = Boolean.FALSE;
+    protected boolean nonPublicApi = false;
 
     // use KellermanSoftware.CompareNetObjects for deep recursive object comparision
-    protected boolean useCompareNetObjects = Boolean.FALSE;
+    protected boolean useCompareNetObjects = false;
 
     // To make API response's headers dictionary case insensitive
-    protected boolean caseInsensitiveResponseHeaders = Boolean.FALSE;
+    protected boolean caseInsensitiveResponseHeaders = false;
 
     public CSharpClientCodegen() {
         super();
@@ -132,7 +132,7 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
         typeMapping.put("UUID", "Guid");
         typeMapping.put("URI", "string");
 
-        setSupportNullable(Boolean.TRUE);
+        setSupportNullable(true);
 
         // CLI options
         addOption(CodegenConstants.PACKAGE_NAME,
@@ -305,7 +305,7 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
             }
 
             setTargetFrameworkNuget("net35");
-            setValidatable(Boolean.FALSE);
+            setValidatable(false);
             setSupportsAsync(Boolean.FALSE);
         } else if (NETSTANDARD.equals(this.targetFramework)) {
             LOGGER.warn(".NET Standard 1.3 support has been DEPRECATED in this generator. Please use `csharp-netcore` generator instead.");

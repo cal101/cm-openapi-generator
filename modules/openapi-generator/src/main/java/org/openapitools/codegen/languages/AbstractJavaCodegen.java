@@ -442,7 +442,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
             // By default, the discriminator lookup should be case sensitive. There is nothing in the OpenAPI specification
             // that indicates the lookup should be case insensitive. However, some implementations perform
             // a case-insensitive lookup.
-            this.setDiscriminatorCaseSensitive(Boolean.TRUE);
+            this.setDiscriminatorCaseSensitive(true);
         }
         additionalProperties.put(DISCRIMINATOR_CASE_SENSITIVE, this.discriminatorCaseSensitive);
 

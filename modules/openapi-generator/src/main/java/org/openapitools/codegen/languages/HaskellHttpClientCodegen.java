@@ -915,7 +915,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
 
             }
             if (isMultipartOperation(op.consumes)) {
-                op.isMultipart = Boolean.TRUE;
+                op.isMultipart = true;
             }
         }
         if (op.hasProduces) {
