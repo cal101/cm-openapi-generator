@@ -4914,7 +4914,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        return;
     }
 
     /**

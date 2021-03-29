@@ -435,6 +435,5 @@ abstract public class AbstractCppCodegen extends DefaultCodegen implements Codeg
             parentModel.vendorExtensions.put("x-has-forward-declarations", true);
             parentModel.vendorExtensions.put("x-forward-declarations", forwardDeclarations);
         }
-        return;
     }
 }
