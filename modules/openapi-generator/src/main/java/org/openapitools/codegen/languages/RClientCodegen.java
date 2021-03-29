@@ -56,15 +56,18 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
     protected boolean useDefaultExceptionHandling = false;
     protected boolean useRlangExceptionHandling = false;
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "r";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a R client library (beta).";
     }
 
@@ -253,7 +256,8 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
         return outputFolder + File.separator + "R" + File.separator;
     }
 
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return outputFolder + File.separator + "R" + File.separator;
     }
 
@@ -603,7 +607,8 @@ public class RClientCodegen extends DefaultCodegen implements CodegenConfig {
      * @param codegenParameter Codegen parameter
      * @param parameter        Parameter
      */
-    public void setParameterExampleValue(CodegenParameter codegenParameter, Parameter parameter) {
+    @Override
+	public void setParameterExampleValue(CodegenParameter codegenParameter, Parameter parameter) {
         if (parameter.getExample() != null) {
             codegenParameter.example = parameter.getExample().toString();
         } else if (parameter.getExamples() != null && !parameter.getExamples().isEmpty()) {

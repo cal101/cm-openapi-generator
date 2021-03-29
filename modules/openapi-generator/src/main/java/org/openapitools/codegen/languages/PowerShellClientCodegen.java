@@ -560,15 +560,18 @@ public class PowerShellClientCodegen extends DefaultCodegen implements CodegenCo
         additionalProperties.put("psData", null);
     }
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "powershell";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a PowerShell API client (beta)";
     }
 

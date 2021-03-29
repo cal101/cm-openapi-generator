@@ -528,7 +528,8 @@ public class PythonClientCodegen extends PythonLegacyClientCodegen {
      * @param datatype data type
      * @return the sanitized variable name for enum
      */
-    public String toEnumVarName(String value, String datatype) {
+    @Override
+	public String toEnumVarName(String value, String datatype) {
         // our enum var names are keys in a python dict, so change spaces to underscores
         if (value.length() == 0) {
             return "EMPTY";
@@ -546,7 +547,8 @@ public class PythonClientCodegen extends PythonLegacyClientCodegen {
      * @param datatype data type
      * @return the sanitized value for enum
      */
-    public String toEnumValue(String value, String datatype) {
+    @Override
+	public String toEnumValue(String value, String datatype) {
         if ("int".equals(datatype) || "float".equals(datatype)) {
             return value;
         } else {
@@ -1335,7 +1337,8 @@ public class PythonClientCodegen extends PythonLegacyClientCodegen {
      *
      * @return map from model name to Schema.
      */
-    protected Map<String, Schema> getModelNameToSchemaCache() {
+    @Override
+	protected Map<String, Schema> getModelNameToSchemaCache() {
         if (modelNameToSchemaCache == null) {
             // Create a cache to efficiently lookup schema based on model name.
             Map<String, Schema> m = new HashMap<String, Schema>();

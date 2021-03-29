@@ -158,7 +158,8 @@ public class JavascriptClosureAngularClientCodegen extends DefaultCodegen implem
         return outputFolder + File.separator + apiPackage().replace('.', File.separatorChar);
     }
 
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return outputFolder + File.separator + modelPackage().replace('.', File.separatorChar);
     }
 
@@ -277,7 +278,8 @@ public class JavascriptClosureAngularClientCodegen extends DefaultCodegen implem
         if (objs.get("imports") instanceof List) {
             List<Map<String, String>> imports = (ArrayList<Map<String, String>>)objs.get("imports");
             Collections.sort(imports, new Comparator<Map<String, String>>() {
-                public int compare(Map<String, String> o1, Map<String, String> o2) {
+                @Override
+				public int compare(Map<String, String> o1, Map<String, String> o2) {
                     return o1.get("import").compareTo(o2.get("import"));
                 }
             });

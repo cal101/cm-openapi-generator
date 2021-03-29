@@ -56,11 +56,13 @@ public class ProtobufSchemaCodegen extends DefaultCodegen implements CodegenConf
         return CodegenType.SCHEMA;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "protobuf-schema";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates gRPC and protocol buffer schema files (beta)";
     }
 

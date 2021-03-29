@@ -56,15 +56,18 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
     protected String modelFolder = "src/models";
     protected String enumSuffix = ""; // default to empty string for backward compatibility
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "rust";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a Rust client library (beta).";
     }
 
@@ -199,7 +202,8 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
         return postProcessModelsEnum(objs);
     }
 
-    @SuppressWarnings({"static-method", "unchecked"})
+    @Override
+	@SuppressWarnings({"static-method", "unchecked"})
     public Map<String, Object> postProcessAllModels(Map<String, Object> objs) {
         // Index all CodegenModels by model name.
         Map<String, CodegenModel> allModels = new HashMap<>();
@@ -352,7 +356,8 @@ public class RustClientCodegen extends DefaultCodegen implements CodegenConfig {
         return (outputFolder + File.separator + apiFolder).replace("/", File.separator);
     }
 
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return (outputFolder + File.separator + modelFolder).replace("/", File.separator);
     }
 

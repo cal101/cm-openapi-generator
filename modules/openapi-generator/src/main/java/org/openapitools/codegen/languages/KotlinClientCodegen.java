@@ -204,15 +204,18 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
         cliOptions.add(CliOption.newBoolean(USE_COROUTINES, "Whether to use the Coroutines adapter with the retrofit2 library."));
     }
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "kotlin";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a Kotlin client.";
     }
 

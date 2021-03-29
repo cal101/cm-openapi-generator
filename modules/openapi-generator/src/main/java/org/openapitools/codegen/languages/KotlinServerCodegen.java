@@ -144,7 +144,8 @@ public class KotlinServerCodegen extends AbstractKotlinCodegen {
         this.corsFeatureEnabled = corsFeatureEnabled;
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a Kotlin server.";
     }
 
@@ -156,11 +157,13 @@ public class KotlinServerCodegen extends AbstractKotlinCodegen {
         this.hstsFeatureEnabled = hstsFeatureEnabled;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "kotlin-server";
     }
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 

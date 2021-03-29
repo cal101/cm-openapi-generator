@@ -35,7 +35,8 @@ public class PhpLumenServerCodegen extends AbstractPhpCodegen {
      * @return the CodegenType for this generator
      * @see org.openapitools.codegen.CodegenType
      */
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 
@@ -45,7 +46,8 @@ public class PhpLumenServerCodegen extends AbstractPhpCodegen {
      *
      * @return the friendly name for the generator
      */
-    public String getName() {
+    @Override
+	public String getName() {
         return "php-lumen";
     }
 
@@ -55,7 +57,8 @@ public class PhpLumenServerCodegen extends AbstractPhpCodegen {
      *
      * @return A string value for the help message
      */
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a PHP Lumen server library.";
     }
 

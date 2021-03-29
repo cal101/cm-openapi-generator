@@ -31,15 +31,18 @@ public class PlantumlDocumentationCodegen extends DefaultCodegen implements Code
 
      final Logger LOGGER = LoggerFactory.getLogger(PlantumlDocumentationCodegen.class);
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.DOCUMENTATION;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "plantuml";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a plantuml documentation.";
     }
 

@@ -39,15 +39,18 @@ public class KotlinVertxServerCodegen extends AbstractKotlinCodegen {
 
      final Logger LOGGER = LoggerFactory.getLogger(KotlinVertxServerCodegen.class);
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "kotlin-vertx";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a kotlin-vertx server.";
     }
 

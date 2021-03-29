@@ -18,15 +18,18 @@ public class MarkdownDocumentationCodegen extends DefaultCodegen implements Code
 
     private final Logger LOGGER = LoggerFactory.getLogger(MarkdownDocumentationCodegen.class);
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.DOCUMENTATION;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "markdown";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a markdown documentation.";
     }
 

@@ -44,15 +44,18 @@ public class LuaClientCodegen extends DefaultCodegen implements CodegenConfig {
     protected String modelDocPath = "docs/";
     protected String luaRocksFilename = "openapiclient-1.0.0-1.rockspec";
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return "lua";
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a Lua client library (beta).";
     }
 
@@ -229,7 +232,8 @@ public class LuaClientCodegen extends DefaultCodegen implements CodegenConfig {
         return outputFolder + File.separator + packageName + File.separator + "api" + File.separator;
     }
 
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return outputFolder + File.separator + packageName + File.separator + "model" + File.separator;
     }
 
