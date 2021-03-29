@@ -206,7 +206,8 @@ public class TemplateManager implements TemplatingExecutor, TemplateProcessor {
      * @return File representing the written file.
      * @throws IOException If file cannot be written.
      */
-    public File writeToFile(String filename, byte[] contents) throws IOException {
+    @Override
+	public File writeToFile(String filename, byte[] contents) throws IOException {
         // Use Paths.get here to normalize path (for Windows file separator, space escaping on Linux/Mac, etc)
         File outputFile = Paths.get(filename).toFile();
 

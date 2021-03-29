@@ -52,7 +52,8 @@ public class CppRestSdkClientCodegen extends AbstractCppCodegen {
      * @return the CodegenType for this generator
      * @see org.openapitools.codegen.CodegenType
      */
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.CLIENT;
     }
 
@@ -62,7 +63,8 @@ public class CppRestSdkClientCodegen extends AbstractCppCodegen {
      *
      * @return the friendly name for the generator
      */
-    public String getName() {
+    @Override
+	public String getName() {
         return "cpp-restsdk";
     }
 
@@ -72,7 +74,8 @@ public class CppRestSdkClientCodegen extends AbstractCppCodegen {
      *
      * @return A string value for the help message
      */
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a C++ API client with C++ REST SDK (https://github.com/Microsoft/cpprestsdk).";
     }
 

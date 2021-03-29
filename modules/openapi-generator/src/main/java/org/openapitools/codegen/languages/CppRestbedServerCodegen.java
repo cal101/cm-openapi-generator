@@ -175,7 +175,8 @@ public class CppRestbedServerCodegen extends AbstractCppCodegen {
      *
      * @return the CodegenType for this generator
      */
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return CodegenType.SERVER;
     }
 
@@ -185,7 +186,8 @@ public class CppRestbedServerCodegen extends AbstractCppCodegen {
      *
      * @return the friendly name for the generator
      */
-    public String getName() {
+    @Override
+	public String getName() {
         return "cpp-restbed-server";
     }
 
@@ -195,7 +197,8 @@ public class CppRestbedServerCodegen extends AbstractCppCodegen {
      *
      * @return A string value for the help message
      */
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return "Generates a C++ API Server with Restbed (https://github.com/Corvusoft/restbed).";
     }
 
@@ -228,7 +231,8 @@ public class CppRestbedServerCodegen extends AbstractCppCodegen {
      * Location to write model files. You can use the modelPackage() as defined
      * when the class is instantiated
      */
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return (outputFolder + "/model").replace("/", File.separator);
     }
 

@@ -254,11 +254,13 @@ public class DefaultCodegen implements CodegenConfig {
     // A cache to efficiently lookup a Schema instance based on the return value of `toModelName()`.
     private Map<String, Schema> modelNameToSchemaCache;
 
-    public List<CliOption> cliOptions() {
+    @Override
+	public List<CliOption> cliOptions() {
         return cliOptions;
     }
 
-    public void processOpts() {
+    @Override
+	public void processOpts() {
         if (additionalProperties.containsKey(CodegenConstants.TEMPLATE_DIR)) {
             this.setTemplateDir((String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR));
         }
@@ -398,7 +400,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     // override with any special post-processing for all models
-    @SuppressWarnings({"static-method", "unchecked"})
+    @Override
+	@SuppressWarnings({"static-method", "unchecked"})
     public Map<String, Object> postProcessAllModels(Map<String, Object> objs) {
         if (this.useOneOfInterfaces) {
             // First, add newly created oneOf interfaces
@@ -500,7 +503,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param objs Map of models
      * @return maps of models with various updates
      */
-    public Map<String, Object> updateAllModels(Map<String, Object> objs) {
+    @Override
+	public Map<String, Object> updateAllModels(Map<String, Object> objs) {
         Map<String, CodegenModel> allModels = getAllModels(objs);
 
         // Fix up all parent and interface CodegenModel references.
@@ -612,7 +616,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     // override with any special post-processing
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public Map<String, Object> postProcessModels(Map<String, Object> objs) {
         return objs;
     }
@@ -756,7 +761,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     // override with any message to be shown right before the process finishes
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public void postProcess() {
         System.out.println("################################################################################");
         System.out.println("# Thanks for using OpenAPI Generator.                                          #");
@@ -766,29 +772,34 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     // override with any special post-processing
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public Map<String, Object> postProcessOperationsWithModels(Map<String, Object> objs, List<Object> allModels) {
         return objs;
     }
 
     // override with any special post-processing
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public Map<String, Object> postProcessSupportingFileData(Map<String, Object> objs) {
         return objs;
     }
 
     // override to post-process any model properties
-    @SuppressWarnings("unused")
+    @Override
+	@SuppressWarnings("unused")
     public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
     }
 
     // override to post-process any parameters
-    @SuppressWarnings("unused")
+    @Override
+	@SuppressWarnings("unused")
     public void postProcessParameter(CodegenParameter parameter) {
     }
 
     //override with any special handling of the entire OpenAPI spec document
-    @SuppressWarnings("unused")
+    @Override
+	@SuppressWarnings("unused")
     public void preprocessOpenAPI(OpenAPI openAPI) {
         if (useOneOfInterfaces) {
             // we process the openapi schema here to find oneOf schemas and create interface models for them
@@ -872,24 +883,28 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     // override with any special handling of the entire OpenAPI spec document
-    @SuppressWarnings("unused")
+    @Override
+	@SuppressWarnings("unused")
     public void processOpenAPI(OpenAPI openAPI) {
     }
 
     // override with any special handling of the JMustache compiler
-    @SuppressWarnings("unused")
+    @Override
+	@SuppressWarnings("unused")
     public Compiler processCompiler(Compiler compiler) {
         return compiler;
     }
 
     // override with any special handling for the templating engine
-    @SuppressWarnings("unused")
+    @Override
+	@SuppressWarnings("unused")
     public TemplatingEngineAdapter processTemplatingEngine(TemplatingEngineAdapter templatingEngine) {
         return templatingEngine;
     }
 
     // override with any special text escaping logic
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String escapeText(String input) {
         if (input == null) {
             return input;
@@ -915,7 +930,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param input String to be escaped
      * @return escaped string
      */
-    public String escapeTextWhileAllowingNewLines(String input) {
+    @Override
+	public String escapeTextWhileAllowingNewLines(String input) {
         if (input == null) {
             return input;
         }
@@ -935,7 +951,8 @@ public class DefaultCodegen implements CodegenConfig {
     }
 
     // override with any special encoding and escaping logic
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String encodePath(String input) {
         return escapeText(input);
     }
@@ -947,7 +964,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param input String to be cleaned up
      * @return string with unsafe characters removed or escaped
      */
-    public String escapeUnsafeCharacters(String input) {
+    @Override
+	public String escapeUnsafeCharacters(String input) {
         LOGGER.warn("escapeUnsafeCharacters should be overridden in the code generator with proper logic to escape " +
                 "unsafe characters");
         // doing nothing by default and code generator should implement
@@ -963,57 +981,70 @@ public class DefaultCodegen implements CodegenConfig {
      * @param input String to be cleaned up
      * @return string with quotation mark removed or escaped
      */
-    public String escapeQuotationMark(String input) {
+    @Override
+	public String escapeQuotationMark(String input) {
         LOGGER.warn("escapeQuotationMark should be overridden in the code generator with proper logic to escape " +
                 "single/double quote");
         return input.replace("\"", "\\\"");
     }
 
-    public Set<String> defaultIncludes() {
+    @Override
+	public Set<String> defaultIncludes() {
         return defaultIncludes;
     }
 
-    public Map<String, String> typeMapping() {
+    @Override
+	public Map<String, String> typeMapping() {
         return typeMapping;
     }
 
-    public Map<String, String> instantiationTypes() {
+    @Override
+	public Map<String, String> instantiationTypes() {
         return instantiationTypes;
     }
 
-    public Set<String> reservedWords() {
+    @Override
+	public Set<String> reservedWords() {
         return reservedWords;
     }
 
-    public Set<String> languageSpecificPrimitives() {
+    @Override
+	public Set<String> languageSpecificPrimitives() {
         return languageSpecificPrimitives;
     }
 
-    public Map<String, String> importMapping() {
+    @Override
+	public Map<String, String> importMapping() {
         return importMapping;
     }
 
-    public String testPackage() {
+    @Override
+	public String testPackage() {
         return testPackage;
     }
 
-    public String modelPackage() {
+    @Override
+	public String modelPackage() {
         return modelPackage;
     }
 
-    public String apiPackage() {
+    @Override
+	public String apiPackage() {
         return apiPackage;
     }
 
-    public String fileSuffix() {
+    @Override
+	public String fileSuffix() {
         return fileSuffix;
     }
 
-    public String templateDir() {
+    @Override
+	public String templateDir() {
         return templateDir;
     }
 
-    public String embeddedTemplateDir() {
+    @Override
+	public String embeddedTemplateDir() {
         if (embeddedTemplateDir != null) {
             return embeddedTemplateDir;
         } else {
@@ -1021,91 +1052,113 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    public Map<String, String> apiDocTemplateFiles() {
+    @Override
+	public Map<String, String> apiDocTemplateFiles() {
         return apiDocTemplateFiles;
     }
 
-    public Map<String, String> modelDocTemplateFiles() {
+    @Override
+	public Map<String, String> modelDocTemplateFiles() {
         return modelDocTemplateFiles;
     }
 
-    public Map<String, String> reservedWordsMappings() {
+    @Override
+	public Map<String, String> reservedWordsMappings() {
         return reservedWordsMappings;
     }
 
-    public Map<String, String> apiTestTemplateFiles() {
+    @Override
+	public Map<String, String> apiTestTemplateFiles() {
         return apiTestTemplateFiles;
     }
 
-    public Map<String, String> modelTestTemplateFiles() {
+    @Override
+	public Map<String, String> modelTestTemplateFiles() {
         return modelTestTemplateFiles;
     }
 
-    public Map<String, String> apiTemplateFiles() {
+    @Override
+	public Map<String, String> apiTemplateFiles() {
         return apiTemplateFiles;
     }
 
-    public Map<String, String> modelTemplateFiles() {
+    @Override
+	public Map<String, String> modelTemplateFiles() {
         return modelTemplateFiles;
     }
 
-    public String apiFileFolder() {
+    @Override
+	public String apiFileFolder() {
         return outputFolder + File.separator + apiPackage().replace('.', File.separatorChar);
     }
 
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return outputFolder + File.separator + modelPackage().replace('.', File.separatorChar);
     }
 
-    public String apiTestFileFolder() {
+    @Override
+	public String apiTestFileFolder() {
         return outputFolder + File.separator + testPackage().replace('.', File.separatorChar);
     }
 
-    public String modelTestFileFolder() {
+    @Override
+	public String modelTestFileFolder() {
         return outputFolder + File.separator + testPackage().replace('.', File.separatorChar);
     }
 
-    public String apiDocFileFolder() {
+    @Override
+	public String apiDocFileFolder() {
         return outputFolder;
     }
 
-    public String modelDocFileFolder() {
+    @Override
+	public String modelDocFileFolder() {
         return outputFolder;
     }
 
-    public Map<String, Object> additionalProperties() {
+    @Override
+	public Map<String, Object> additionalProperties() {
         return additionalProperties;
     }
 
-    public Map<String, String> serverVariableOverrides() {
+    @Override
+	public Map<String, String> serverVariableOverrides() {
         return serverVariables;
     }
 
-    public Map<String, Object> vendorExtensions() {
+    @Override
+	public Map<String, Object> vendorExtensions() {
         return vendorExtensions;
     }
 
-    public List<SupportingFile> supportingFiles() {
+    @Override
+	public List<SupportingFile> supportingFiles() {
         return supportingFiles;
     }
 
-    public String outputFolder() {
+    @Override
+	public String outputFolder() {
         return outputFolder;
     }
 
-    public void setOutputDir(String dir) {
+    @Override
+	public void setOutputDir(String dir) {
         this.outputFolder = dir;
     }
 
-    public String getOutputDir() {
+    @Override
+	public String getOutputDir() {
         return outputFolder();
     }
 
-    public String getInputSpec() {
+    @Override
+	public String getInputSpec() {
         return inputSpec;
     }
 
-    public void setInputSpec(String inputSpec) {
+    @Override
+	public void setInputSpec(String inputSpec) {
         this.inputSpec = inputSpec;
     }
 
@@ -1233,7 +1286,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the file name of the Api
      * @return the file name of the Api
      */
-    public String toApiFilename(String name) {
+    @Override
+	public String toApiFilename(String name) {
         return toApiName(name);
     }
 
@@ -1243,7 +1297,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the file name of the Api
      * @return the file name of the Api
      */
-    public String toApiDocFilename(String name) {
+    @Override
+	public String toApiDocFilename(String name) {
         return toApiName(name);
     }
 
@@ -1253,7 +1308,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the file name of the Api
      * @return the file name of the Api
      */
-    public String toApiTestFilename(String name) {
+    @Override
+	public String toApiTestFilename(String name) {
         return toApiName(name) + "Test";
     }
 
@@ -1263,7 +1319,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the varible name of the Api
      * @return the snake-cased variable name
      */
-    public String toApiVarName(String name) {
+    @Override
+	public String toApiVarName(String name) {
         return lowerCamelCase(name);
     }
 
@@ -1273,7 +1330,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the model name
      * @return the file name of the model
      */
-    public String toModelFilename(String name) {
+    @Override
+	public String toModelFilename(String name) {
         return camelize(name);
     }
 
@@ -1283,7 +1341,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the model name
      * @return the file name of the model
      */
-    public String toModelTestFilename(String name) {
+    @Override
+	public String toModelTestFilename(String name) {
         return camelize(name) + "Test";
     }
 
@@ -1293,7 +1352,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the model name
      * @return the file name of the model
      */
-    public String toModelDocFilename(String name) {
+    @Override
+	public String toModelDocFilename(String name) {
         return camelize(name);
     }
 
@@ -1346,7 +1406,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name Codegen property object
      * @return the sanitized parameter name
      */
-    public String toParamName(String name) {
+    @Override
+	public String toParamName(String name) {
         name = removeNonNameElementToCamelCase(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
         if (reservedWords.contains(name)) {
             return escapeReservedWord(name);
@@ -1386,7 +1447,8 @@ public class DefaultCodegen implements CodegenConfig {
      * <p>
      * throws Runtime exception as reserved word is not allowed (default behavior)
      */
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String escapeReservedWord(String name) {
         throw new RuntimeException("reserved word " + name + " not allowed");
     }
@@ -1397,7 +1459,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the "Model"
      * @return the fully-qualified "Model" name for import
      */
-    public String toModelImport(String name) {
+    @Override
+	public String toModelImport(String name) {
         if ("".equals(modelPackage())) {
             return name;
         } else {
@@ -1411,7 +1474,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the "Model"
      * @return Map of fully-qualified models.
      */
-    public Map<String,String> toModelImportMap(String name){
+    @Override
+	public Map<String,String> toModelImportMap(String name){
         return Collections.singletonMap(this.toModelImport(name),name);
     }
 
@@ -1421,7 +1485,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the "Api"
      * @return the fully-qualified "Api" name for import
      */
-    public String toApiImport(String name) {
+    @Override
+	public String toApiImport(String name) {
         return apiPackage() + "." + name;
     }
 
@@ -1592,7 +1657,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param operation OAS operation object
      * @return string presentation of the example path
      */
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String generateExamplePath(String path, Operation operation) {
         StringBuilder sb = new StringBuilder();
         sb.append(path);
@@ -2000,7 +2066,8 @@ public class DefaultCodegen implements CodegenConfig {
         return "oneOf<" + String.join(",", names) + ">";
     }
 
-    public Schema unaliasSchema(Schema schema, Map<String, String> usedImportMappings) {
+    @Override
+	public Schema unaliasSchema(Schema schema, Map<String, String> usedImportMappings) {
         return ModelUtils.unaliasSchema(this.openAPI, schema, usedImportMappings);
     }
 
@@ -2138,7 +2205,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name name
      * @return a string presentation of the type
      */
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String getTypeDeclaration(String name) {
         return name;
     }
@@ -2149,7 +2217,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param schema property schema
      * @return a string presentation of the property type
      */
-    public String getTypeDeclaration(Schema schema) {
+    @Override
+	public String getTypeDeclaration(Schema schema) {
         if (schema == null) {
             LOGGER.warn("Null schema found. Default type to `NULL_SCHEMA_ERR`");
             return "NULL_SCHEMA_ERR";
@@ -2185,7 +2254,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the property
      * @return getter name based on naming convention
      */
-    public String toBooleanGetter(String name) {
+    @Override
+	public String toBooleanGetter(String name) {
         return "get" + getterAndSetterCapitalize(name);
     }
 
@@ -2195,7 +2265,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the property
      * @return getter name based on naming convention
      */
-    public String toGetter(String name) {
+    @Override
+	public String toGetter(String name) {
         return "get" + getterAndSetterCapitalize(name);
     }
 
@@ -2205,7 +2276,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the property
      * @return setter name based on naming convention
      */
-    public String toSetter(String name) {
+    @Override
+	public String toSetter(String name) {
         return "set" + getterAndSetterCapitalize(name);
     }
 
@@ -2216,7 +2288,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the Api
      * @return capitalized Api name
      */
-    public String toApiName(String name) {
+    @Override
+	public String toApiName(String name) {
         if (name.length() == 0) {
             return "DefaultApi";
         }
@@ -2231,7 +2304,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name the name of the model
      * @return capitalized model name
      */
-    public String toModelName(final String name) {
+    @Override
+	public String toModelName(final String name) {
         return camelize(modelNamePrefix + "_" + name + "_" + modelNameSuffix);
     }
 
@@ -2267,7 +2341,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param schema OAS Model object
      * @return Codegen Model object
      */
-    public CodegenModel fromModel(String name, Schema schema) {
+    @Override
+	public CodegenModel fromModel(String name, Schema schema) {
         Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
         if (typeAliases == null) {
             // Only do this once during first call
@@ -3668,7 +3743,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param servers    list of servers
      * @return Codegen Operation object
      */
-    public CodegenOperation fromOperation(String path,
+    @Override
+	public CodegenOperation fromOperation(String path,
                                           String httpMethod,
                                           Operation operation,
                                           List<Server> servers) {
@@ -4471,7 +4547,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param securitySchemeMap a map of OAS SecuritySchemeDefinition object
      * @return a list of Codegen Security objects
      */
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public List<CodegenSecurity> fromSecurity(Map<String, SecurityScheme> securitySchemeMap) {
         if (securitySchemeMap == null) {
             return Collections.emptyList();
@@ -4692,7 +4769,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param co           Codegen Operation object
      * @param operations   map of Codegen operations
      */
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation
             co, Map<String, List<CodegenOperation>> operations) {
         List<CodegenOperation> opList = operations.get(tag);
@@ -4979,12 +5057,14 @@ public class DefaultCodegen implements CodegenConfig {
         return result;
     }
 
-    public String apiFilename(String templateName, String tag) {
+    @Override
+	public String apiFilename(String templateName, String tag) {
         String suffix = apiTemplateFiles().get(templateName);
         return apiFileFolder() + File.separator + toApiFilename(tag) + suffix;
     }
 
-    public String modelFilename(String templateName, String modelName) {
+    @Override
+	public String modelFilename(String templateName, String modelName) {
         String suffix = modelTemplateFiles().get(templateName);
         return modelFileFolder() + File.separator + toModelFilename(modelName) + suffix;
     }
@@ -4996,7 +5076,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param tag          tag
      * @return the API documentation file name with full path
      */
-    public String apiDocFilename(String templateName, String tag) {
+    @Override
+	public String apiDocFilename(String templateName, String tag) {
         String docExtension = getDocExtension();
         String suffix = docExtension != null ? docExtension : apiDocTemplateFiles().get(templateName);
         return apiDocFileFolder() + File.separator + toApiDocFilename(tag) + suffix;
@@ -5009,44 +5090,54 @@ public class DefaultCodegen implements CodegenConfig {
      * @param tag          tag
      * @return the API test file name with full path
      */
-    public String apiTestFilename(String templateName, String tag) {
+    @Override
+	public String apiTestFilename(String templateName, String tag) {
         String suffix = apiTestTemplateFiles().get(templateName);
         return apiTestFileFolder() + File.separator + toApiTestFilename(tag) + suffix;
     }
 
-    public boolean shouldOverwrite(String filename) {
+    @Override
+	public boolean shouldOverwrite(String filename) {
         return !(skipOverwrite && new File(filename).exists());
     }
 
-    public boolean isSkipOverwrite() {
+    @Override
+	public boolean isSkipOverwrite() {
         return skipOverwrite;
     }
 
-    public void setSkipOverwrite(boolean skipOverwrite) {
+    @Override
+	public void setSkipOverwrite(boolean skipOverwrite) {
         this.skipOverwrite = skipOverwrite;
     }
 
-    public boolean isRemoveOperationIdPrefix() {
+    @Override
+	public boolean isRemoveOperationIdPrefix() {
         return removeOperationIdPrefix;
     }
 
-    public boolean isSkipOperationExample() {
+    @Override
+	public boolean isSkipOperationExample() {
         return skipOperationExample;
     }
 
-    public void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix) {
+    @Override
+	public void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix) {
         this.removeOperationIdPrefix = removeOperationIdPrefix;
     }
 
-    public void setSkipOperationExample(boolean skipOperationExample) {
+    @Override
+	public void setSkipOperationExample(boolean skipOperationExample) {
         this.skipOperationExample = skipOperationExample;
     }
 
-    public boolean isHideGenerationTimestamp() {
+    @Override
+	public boolean isHideGenerationTimestamp() {
         return hideGenerationTimestamp;
     }
 
-    public void setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
+    @Override
+	public void setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
         this.hideGenerationTimestamp = hideGenerationTimestamp;
     }
 
@@ -5056,7 +5147,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return the supported libraries
      */
-    public Map<String, String> supportedLibraries() {
+    @Override
+	public Map<String, String> supportedLibraries() {
         return supportedLibraries;
     }
 
@@ -5065,7 +5157,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param library Library template
      */
-    public void setLibrary(String library) {
+    @Override
+	public void setLibrary(String library) {
         if (library != null && !supportedLibraries.containsKey(library)) {
             StringBuilder sb = new StringBuilder("Unknown library: " + library + "\nAvailable libraries:");
             if (supportedLibraries.size() == 0) {
@@ -5085,7 +5178,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return Library template
      */
-    public String getLibrary() {
+    @Override
+	public String getLibrary() {
         return library;
     }
 
@@ -5103,7 +5197,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param gitHost Git host
      */
-    public void setGitHost(String gitHost) {
+    @Override
+	public void setGitHost(String gitHost) {
         this.gitHost = gitHost;
     }
 
@@ -5112,7 +5207,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return Git host
      */
-    public String getGitHost() {
+    @Override
+	public String getGitHost() {
         return gitHost;
     }
 
@@ -5121,7 +5217,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param gitUserId Git user ID
      */
-    public void setGitUserId(String gitUserId) {
+    @Override
+	public void setGitUserId(String gitUserId) {
         this.gitUserId = gitUserId;
     }
 
@@ -5130,7 +5227,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return Git user ID
      */
-    public String getGitUserId() {
+    @Override
+	public String getGitUserId() {
         return gitUserId;
     }
 
@@ -5139,7 +5237,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param gitRepoId Git repo ID
      */
-    public void setGitRepoId(String gitRepoId) {
+    @Override
+	public void setGitRepoId(String gitRepoId) {
         this.gitRepoId = gitRepoId;
     }
 
@@ -5148,7 +5247,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return Git repo ID
      */
-    public String getGitRepoId() {
+    @Override
+	public String getGitRepoId() {
         return gitRepoId;
     }
 
@@ -5157,7 +5257,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param releaseNote Release note
      */
-    public void setReleaseNote(String releaseNote) {
+    @Override
+	public void setReleaseNote(String releaseNote) {
         this.releaseNote = releaseNote;
     }
 
@@ -5166,7 +5267,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return Release note
      */
-    public String getReleaseNote() {
+    @Override
+	public String getReleaseNote() {
         return releaseNote;
     }
 
@@ -5175,7 +5277,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return Documentation files extension
      */
-    public String getDocExtension() {
+    @Override
+	public String getDocExtension() {
         return docExtension;
     }
 
@@ -5184,7 +5287,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param userDocExtension documentation files extension
      */
-    public void setDocExtension(String userDocExtension) {
+    @Override
+	public void setDocExtension(String userDocExtension) {
         this.docExtension = userDocExtension;
     }
 
@@ -5193,7 +5297,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param httpUserAgent HTTP user agent
      */
-    public void setHttpUserAgent(String httpUserAgent) {
+    @Override
+	public void setHttpUserAgent(String httpUserAgent) {
         this.httpUserAgent = httpUserAgent;
     }
 
@@ -5202,7 +5307,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return HTTP user agent
      */
-    public String getHttpUserAgent() {
+    @Override
+	public String getHttpUserAgent() {
         return httpUserAgent;
     }
 
@@ -5221,7 +5327,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param name string to be sanitize
      * @return sanitized string
      */
-    @SuppressWarnings("static-method")
+    @Override
+	@SuppressWarnings("static-method")
     public String sanitizeName(String name) {
         return sanitizeName(name, "\\W");
     }
@@ -5330,7 +5437,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param tag Tag
      * @return Sanitized tag
      */
-    public String sanitizeTag(String tag) {
+    @Override
+	public String sanitizeTag(String tag) {
         tag = camelize(sanitizeName(tag));
 
         // tag starts with numbers
@@ -5558,7 +5666,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return a string of the full path to an override ignore file.
      */
-    public String getIgnoreFilePathOverride() {
+    @Override
+	public String getIgnoreFilePathOverride() {
         return ignoreFilePathOverride;
     }
 
@@ -5567,7 +5676,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param ignoreFileOverride The full path to an ignore file
      */
-    public void setIgnoreFilePathOverride(final String ignoreFileOverride) {
+    @Override
+	public void setIgnoreFilePathOverride(final String ignoreFileOverride) {
         this.ignoreFilePathOverride = ignoreFileOverride;
     }
 
@@ -5746,15 +5856,18 @@ public class DefaultCodegen implements CodegenConfig {
         }
     }
 
-    public CodegenType getTag() {
+    @Override
+	public CodegenType getTag() {
         return null;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return null;
     }
 
-    public String getHelp() {
+    @Override
+	public String getHelp() {
         return null;
     }
 
@@ -6342,7 +6455,8 @@ public class DefaultCodegen implements CodegenConfig {
      * @param file     file to be processed
      * @param fileType file type
      */
-    public void postProcessFile(File file, String fileType) {
+    @Override
+	public void postProcessFile(File file, String fileType) {
         LOGGER.debug("Post processing file {} ({})", file, fileType);
     }
 
@@ -6351,7 +6465,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @return true if the option is enabled
      */
-    public boolean isEnablePostProcessFile() {
+    @Override
+	public boolean isEnablePostProcessFile() {
         return enablePostProcessFile;
     }
 
@@ -6360,7 +6475,8 @@ public class DefaultCodegen implements CodegenConfig {
      *
      * @param enablePostProcessFile true to enable post-processing file
      */
-    public void setEnablePostProcessFile(boolean enablePostProcessFile) {
+    @Override
+	public void setEnablePostProcessFile(boolean enablePostProcessFile) {
         this.enablePostProcessFile = enablePostProcessFile;
     }
 

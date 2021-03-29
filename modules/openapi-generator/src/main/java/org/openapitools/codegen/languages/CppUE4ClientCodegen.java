@@ -539,15 +539,18 @@ public class CppUE4ClientCodegen extends AbstractCppCodegen {
         return input.replace("*/", "*_/").replace("/*", "/_*");
     }
 
-    public String toBooleanGetter(String name) {
+    @Override
+	public String toBooleanGetter(String name) {
         return "Is" + getterAndSetterCapitalize(name);
     }
 
-    public String toGetter(String name) {
+    @Override
+	public String toGetter(String name) {
         return "Get" + getterAndSetterCapitalize(name);
     }
 
-    public String toSetter(String name) {
+    @Override
+	public String toSetter(String name) {
         return "Set" + getterAndSetterCapitalize(name);
     }
 }

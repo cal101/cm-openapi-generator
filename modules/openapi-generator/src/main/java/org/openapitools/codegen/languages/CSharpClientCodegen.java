@@ -874,11 +874,13 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
         }
     }
 
-    public void setPackageName(String packageName) {
+    @Override
+	public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
 
-    public void setPackageVersion(String packageVersion) {
+    @Override
+	public void setPackageVersion(String packageVersion) {
         this.packageVersion = packageVersion;
     }
 

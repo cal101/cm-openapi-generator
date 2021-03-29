@@ -745,11 +745,13 @@ public class CSharpNetCoreClientCodegen extends AbstractCSharpCodegen {
         this.packageGuid = packageGuid;
     }
 
-    public void setPackageName(String packageName) {
+    @Override
+	public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
 
-    public void setPackageVersion(String packageVersion) {
+    @Override
+	public void setPackageVersion(String packageVersion) {
         this.packageVersion = packageVersion;
     }
 
@@ -794,7 +796,8 @@ public class CSharpNetCoreClientCodegen extends AbstractCSharpCodegen {
         this.licenseId = licenseId;
     }
 
-    public void setReleaseNote(String releaseNote) {
+    @Override
+	public void setReleaseNote(String releaseNote) {
         this.releaseNote = releaseNote;
     }
 

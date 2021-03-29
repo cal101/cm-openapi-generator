@@ -277,7 +277,8 @@ abstract public class AbstractAdaCodegen extends DefaultCodegen implements Codeg
      * @param name the name of the model
      * @return capitalized model name
      */
-    public String toModelName(final String name) {
+    @Override
+	public String toModelName(final String name) {
         String result = camelize(sanitizeName(name));
 
         if (!StringUtils.isEmpty(modelNamePrefix)) {

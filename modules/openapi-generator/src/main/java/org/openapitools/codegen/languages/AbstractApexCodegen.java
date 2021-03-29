@@ -642,7 +642,8 @@ public abstract class AbstractApexCodegen extends DefaultCodegen implements Code
         return p.replaceAll("\"", "%22");
     }
 
-    public String toRegularExpression(String pattern) {
+    @Override
+	public String toRegularExpression(String pattern) {
         return escapeText(pattern);
     }
 

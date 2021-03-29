@@ -170,11 +170,13 @@ public class EiffelClientCodegen extends AbstractEiffelCodegen {
         return outputFolder + File.separator + "src" + File.separator + "api";
     }
 
-    public String modelFileFolder() {
+    @Override
+	public String modelFileFolder() {
         return outputFolder + File.separator + "src" + File.separator + modelPath;
     }
 
-    public String apiTestFileFolder() {
+    @Override
+	public String apiTestFileFolder() {
         return outputFolder + File.separator + "test" + File.separator + "apis";
     }
 

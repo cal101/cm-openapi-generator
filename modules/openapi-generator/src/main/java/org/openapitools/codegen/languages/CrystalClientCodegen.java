@@ -836,7 +836,8 @@ public class CrystalClientCodegen extends DefaultCodegen {
         return varName;
     }
 
-    public String toRegularExpression(String pattern) {
+    @Override
+	public String toRegularExpression(String pattern) {
         return addRegularExpressionDelimiter(pattern);
     }
 
