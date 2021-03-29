@@ -129,7 +129,7 @@ public class PythonClientCodegen extends PythonLegacyClientCodegen {
         // add the models and apis folders
         supportingFiles.add(new SupportingFile("__init__models.mustache", packagePath() + File.separatorChar + "models", "__init__.py"));
         SupportingFile originalInitModel = supportingFiles.stream()
-                .filter(sf -> sf.getTemplateFile().equals("__init__model.mustache"))
+                .filter(sf -> "__init__model.mustache".equals(sf.getTemplateFile()))
                 .reduce((a, b) -> {
                     throw new IllegalStateException("Multiple elements: " + a + ", " + b);
                 })
