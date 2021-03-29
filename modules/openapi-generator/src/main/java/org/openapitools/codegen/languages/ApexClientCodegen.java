@@ -48,8 +48,8 @@ public class ApexClientCodegen extends AbstractApexCodegen {
     private String buildMethod = "sfdx";
     private String namedCredential;
     private String srcPath = "force-app/main/default/";
-    private String sfdxConfigPath = "config/";
-    private HashMap<String, Object> primitiveDefaults = new HashMap<String, Object>();
+    private final String sfdxConfigPath = "config/";
+    private final HashMap<String, Object> primitiveDefaults = new HashMap<String, Object>();
 
     public ApexClientCodegen() {
         super();

@@ -22,9 +22,9 @@ package org.openapitools.codegen.config;
  * @param <TSpecDocument> the type of the input spec document.
  */
 public class Context<TSpecDocument> {
-    private TSpecDocument specDocument;
-    private GeneratorSettings generatorSettings;
-    private WorkflowSettings workflowSettings;
+    private final TSpecDocument specDocument;
+    private final GeneratorSettings generatorSettings;
+    private final WorkflowSettings workflowSettings;
 
     /**
      * Instantiates a new Context.

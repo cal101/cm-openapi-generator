@@ -21,8 +21,8 @@ package org.openapitools.codegen.validation;
  */
 @SuppressWarnings({"WeakerAccess"})
 public final class Invalid extends Validated {
-    private String message;
-    private ValidationRule rule;
+    private final String message;
+    private final ValidationRule rule;
     private String details;
 
     /**

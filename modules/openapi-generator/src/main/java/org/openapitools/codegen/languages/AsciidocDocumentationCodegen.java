@@ -66,8 +66,8 @@ public class AsciidocDocumentationCodegen extends DefaultCodegen implements Code
 
         private long includeCount = 0;
         private long notFoundCount = 0;
-        private String attributePathReference;
-        private String basePath;
+        private final String attributePathReference;
+        private final String basePath;
 
         public IncludeMarkupLambda(final String attributePathReference, final String basePath) {
             this.attributePathReference = attributePathReference;
@@ -113,7 +113,7 @@ public class AsciidocDocumentationCodegen extends DefaultCodegen implements Code
 
         private long linkedCount = 0;
         private long notFoundLinkCount = 0;
-        private String basePath;
+        private final String basePath;
 
         public LinkMarkupLambda(final String basePath) {
             this.basePath = basePath;

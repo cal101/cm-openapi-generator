@@ -23,10 +23,10 @@ import java.util.function.Function;
  */
 @SuppressWarnings("WeakerAccess")
 public class ValidationRule {
-    private Severity severity;
-    private String description;
-    private String failureMessage;
-    private Function<Object, Result> test;
+    private final Severity severity;
+    private final String description;
+    private final String failureMessage;
+    private final Function<Object, Result> test;
 
     /**
      * Constructs a new instance of {@link ValidationRule}

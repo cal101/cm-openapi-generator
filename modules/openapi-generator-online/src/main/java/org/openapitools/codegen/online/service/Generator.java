@@ -62,7 +62,7 @@ public class Generator {
     public enum Type {
         CLIENT("client"), SERVER("server");
 
-        private String name;
+        private final String name;
 
         Type(String name) {
             this.name = name;

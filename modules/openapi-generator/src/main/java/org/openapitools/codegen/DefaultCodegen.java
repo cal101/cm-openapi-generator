@@ -2240,8 +2240,8 @@ public class DefaultCodegen implements CodegenConfig {
             this.name = name;
             this.schema = s;
         }
-        private String name;
-        private Schema schema;
+        private final String name;
+        private final Schema schema;
 
         @Override
         public boolean equals(Object o) {
@@ -6516,8 +6516,8 @@ public class DefaultCodegen implements CodegenConfig {
             return exceptions;
         }
 
-        private String name;
-        private String removeCharRegEx;
+        private final String name;
+        private final String removeCharRegEx;
         private List<String> exceptions;
 
         @Override

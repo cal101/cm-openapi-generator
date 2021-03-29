@@ -26,8 +26,8 @@ import java.util.Optional;
 
 public class GenericValidatorTest {
     static class Person {
-        private int age;
-        private String name;
+        private final int age;
+        private final String name;
 
         Person(String name, int age) {
             this.age = age;
@@ -56,7 +56,7 @@ public class GenericValidatorTest {
         return person.name.length() < 10? ValidationRule.Pass.empty() : ValidationRule.Fail.empty();
     }
 
-    private List<ValidationRule> validationRules = Arrays.asList(
+    private final List<ValidationRule> validationRules = Arrays.asList(
             ValidationRule.error("Age must be positive and more than zero", GenericValidatorTest::checkAge),
             ValidationRule.error("Only adults (18 years old and older)", GenericValidatorTest::checkAdult),
             ValidationRule.error("Name isn't set!", GenericValidatorTest::checkName),

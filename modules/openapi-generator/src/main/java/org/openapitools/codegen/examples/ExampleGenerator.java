@@ -45,8 +45,8 @@ public class ExampleGenerator {
     private static final String STATUS_CODE = "statusCode";
 
     protected Map<String, Schema> examples;
-    private OpenAPI openAPI;
-    private Random random;
+    private final OpenAPI openAPI;
+    private final Random random;
 
     public ExampleGenerator(Map<String, Schema> examples, OpenAPI openAPI) {
         this.examples = examples;

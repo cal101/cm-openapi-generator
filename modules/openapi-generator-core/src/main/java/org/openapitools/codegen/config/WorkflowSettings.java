@@ -58,7 +58,7 @@ public class WorkflowSettings {
     private boolean verbose = DEFAULT_VERBOSE;
     private boolean skipOverwrite = DEFAULT_SKIP_OVERWRITE;
     private boolean removeOperationIdPrefix = DEFAULT_REMOVE_OPERATION_ID_PREFIX;
-    private boolean skipOperationExample = DEFAULT_SKIP_OPERATION_EXAMPLE;
+    private final boolean skipOperationExample = DEFAULT_SKIP_OPERATION_EXAMPLE;
     private boolean logToStderr = DEFAULT_LOG_TO_STDERR;
     private boolean validateSpec = DEFAULT_VALIDATE_SPEC;
     private boolean enablePostProcessFile = DEFAULT_ENABLE_POST_PROCESS_FILE;

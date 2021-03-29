@@ -325,67 +325,67 @@ public class CodeGenMojo extends AbstractMojo {
      * Generate the apis
      */
     @Parameter(name = "generateApis", property = "openapi.generator.maven.plugin.generateApis")
-    private Boolean generateApis = true;
+    private final Boolean generateApis = true;
 
     /**
      * A comma separated list of apis to generate. All apis is the default.
      */
     @Parameter(name = "apisToGenerate", property = "openapi.generator.maven.plugin.apisToGenerate")
-    private String apisToGenerate = "";
+    private final String apisToGenerate = "";
 
     /**
      * Generate the models
      */
     @Parameter(name = "generateModels", property = "openapi.generator.maven.plugin.generateModels")
-    private Boolean generateModels = true;
+    private final Boolean generateModels = true;
 
     /**
      * A comma separated list of models to generate. All models is the default.
      */
     @Parameter(name = "modelsToGenerate", property = "openapi.generator.maven.plugin.modelsToGenerate")
-    private String modelsToGenerate = "";
+    private final String modelsToGenerate = "";
 
     /**
      * Generate the supporting files
      */
     @Parameter(name = "generateSupportingFiles", property = "openapi.generator.maven.plugin.generateSupportingFiles")
-    private Boolean generateSupportingFiles = true;
+    private final Boolean generateSupportingFiles = true;
 
     /**
      * A comma separated list of models to generate. All models is the default.
      */
     @Parameter(name = "supportingFilesToGenerate", property = "openapi.generator.maven.plugin.supportingFilesToGenerate")
-    private String supportingFilesToGenerate = "";
+    private final String supportingFilesToGenerate = "";
 
     /**
      * Generate the model tests
      */
     @Parameter(name = "generateModelTests", property = "openapi.generator.maven.plugin.generateModelTests")
-    private Boolean generateModelTests = true;
+    private final Boolean generateModelTests = true;
 
     /**
      * Generate the model documentation
      */
     @Parameter(name = "generateModelDocumentation", property = "openapi.generator.maven.plugin.generateModelDocumentation")
-    private Boolean generateModelDocumentation = true;
+    private final Boolean generateModelDocumentation = true;
 
     /**
      * Generate the api tests
      */
     @Parameter(name = "generateApiTests", property = "openapi.generator.maven.plugin.generateApiTests")
-    private Boolean generateApiTests = true;
+    private final Boolean generateApiTests = true;
 
     /**
      * Generate the api documentation
      */
     @Parameter(name = "generateApiDocumentation", property = "openapi.generator.maven.plugin.generateApiDocumentation")
-    private Boolean generateApiDocumentation = true;
+    private final Boolean generateApiDocumentation = true;
 
     /**
      * Generate the api documentation
      */
     @Parameter(name = "withXml", property = "openapi.generator.maven.plugin.withXml")
-    private Boolean withXml = false;
+    private final Boolean withXml = false;
 
     /**
      * Skip the execution.
@@ -404,14 +404,14 @@ public class CodeGenMojo extends AbstractMojo {
      * are compiled and included in the project artifact. Mutually exclusive with {@link #addTestCompileSourceRoot}.
      */
     @Parameter(defaultValue = "true", property = "openapi.generator.maven.plugin.addCompileSourceRoot")
-    private boolean addCompileSourceRoot = true;
+    private final boolean addCompileSourceRoot = true;
 
     /**
      * Add the output directory to the project as a test source root, so that the generated java types
      * are compiled only for the test classpath of the project. Mutually exclusive with {@link #addCompileSourceRoot}.
      */
     @Parameter(defaultValue = "false", property = "openapi.generator.maven.plugin.addTestCompileSourceRoot")
-    private boolean addTestCompileSourceRoot = false;
+    private final boolean addTestCompileSourceRoot = false;
 
     // TODO: Rename to global properties in version 5.1
     @Parameter
@@ -421,7 +421,7 @@ public class CodeGenMojo extends AbstractMojo {
     protected Map<String, String> globalProperties = new HashMap<>();
 
     @Parameter(property = "codegen.configHelp")
-    private boolean configHelp = false;
+    private final boolean configHelp = false;
 
     /**
      * The project being built.

@@ -88,7 +88,7 @@ public class DefaultGenerator implements Generator {
     private String basePath;
     private String basePathWithoutHost;
     private String contextPath;
-    private Map<String, String> generatorPropertyDefaults = new HashMap<>();
+    private final Map<String, String> generatorPropertyDefaults = new HashMap<>();
     protected TemplateProcessor templateProcessor = null;
 
     private List<TemplateDefinition> userDefinedTemplates = new ArrayList<>();
