@@ -121,9 +121,6 @@ public class RubySinatraServerCodegen extends AbstractRubyCodegen {
         } else {
             type = openAPIType;
         }
-        if (type == null) {
-            return null;
-        }
         return type;
     }
 
