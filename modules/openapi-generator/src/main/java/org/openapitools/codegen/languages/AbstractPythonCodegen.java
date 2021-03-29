@@ -45,8 +45,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     protected String projectName; // for setup.py, e.g. petstore-api
 
     public AbstractPythonCodegen() {
-        super();
-
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(
                 Arrays.asList(

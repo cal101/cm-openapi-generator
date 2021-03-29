@@ -58,8 +58,6 @@ public abstract class AbstractScalaCodegen extends DefaultCodegen {
     }
 
     public AbstractScalaCodegen() {
-        super();
-
         languageSpecificPrimitives.addAll(Arrays.asList(
                 "String",
                 "boolean",

@@ -43,8 +43,6 @@ public abstract class AbstractGraphQLCodegen extends DefaultCodegen implements C
     protected String graphQlInputsPackage = "";
 
     public AbstractGraphQLCodegen() {
-        super();
-
         setReservedWordsLowerCase(
                 Arrays.asList(
                         // data type

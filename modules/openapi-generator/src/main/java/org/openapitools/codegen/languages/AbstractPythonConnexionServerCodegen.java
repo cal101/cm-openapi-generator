@@ -64,8 +64,6 @@ public abstract class AbstractPythonConnexionServerCodegen extends AbstractPytho
     protected String pythonSrcRoot;
 
     public AbstractPythonConnexionServerCodegen(String templateDirectory, boolean fixBodyNameValue) {
-        super();
-
         modifyFeatureSet(features -> features.includeDocumentationFeatures(DocumentationFeature.Readme));
 
         fixBodyName = fixBodyNameValue;

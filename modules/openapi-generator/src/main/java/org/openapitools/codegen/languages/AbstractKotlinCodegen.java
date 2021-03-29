@@ -73,8 +73,6 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
     protected SERIALIZATION_LIBRARY_TYPE serializationLibrary = SERIALIZATION_LIBRARY_TYPE.moshi;
 
     public AbstractKotlinCodegen() {
-        super();
-
         supportsInheritance = true;
         setSortModelPropertiesByRequiredFlag(true);
 

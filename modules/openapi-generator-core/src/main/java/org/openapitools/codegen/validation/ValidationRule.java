@@ -177,7 +177,6 @@ public class ValidationRule {
         public static Result empty() { return new Pass(); }
 
         public Pass() {
-            super();
         }
 
         public Pass(String details) {
@@ -195,7 +194,6 @@ public class ValidationRule {
         public static Result empty() { return new Fail(); }
 
         public Fail() {
-            super();
         }
 
         public Fail(String details) {

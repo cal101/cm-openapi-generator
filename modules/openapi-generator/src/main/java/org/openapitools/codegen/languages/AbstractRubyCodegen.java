@@ -44,8 +44,6 @@ abstract public class AbstractRubyCodegen extends DefaultCodegen implements Code
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractRubyCodegen.class);
 
     public AbstractRubyCodegen() {
-        super();
-
         setReservedWordsLowerCase(
                 Arrays.asList(
                         "__FILE__", "and", "def", "end", "in", "or", "self", "unless", "__LINE__",

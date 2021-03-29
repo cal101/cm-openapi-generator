@@ -56,8 +56,6 @@ public abstract class AbstractDartCodegen extends DefaultCodegen {
     protected Set<String> additionalReservedWords;
 
     public AbstractDartCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .securityFeatures(EnumSet.of(

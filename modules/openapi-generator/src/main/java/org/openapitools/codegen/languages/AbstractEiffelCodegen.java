@@ -41,8 +41,6 @@ public abstract class AbstractEiffelCodegen extends DefaultCodegen implements Co
     private final Multimap<String, CodegenModel> childrenByParent = ArrayListMultimap.create();
 
     public AbstractEiffelCodegen() {
-        super();
-
         hideGenerationTimestamp = Boolean.FALSE;
 
         setReservedWordsLowerCase(Arrays.asList(

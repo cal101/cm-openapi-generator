@@ -56,8 +56,6 @@ public abstract class AbstractPhpCodegen extends DefaultCodegen implements Codeg
     protected String traitNamePrefix = "", traitNameSuffix = "Trait";
 
     public AbstractPhpCodegen() {
-        super();
-
         modelTemplateFiles.put("model.mustache", ".php");
         apiTemplateFiles.put("api.mustache", ".php");
         apiTestTemplateFiles.put("api_test.mustache", ".php");

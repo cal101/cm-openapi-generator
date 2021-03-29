@@ -40,7 +40,6 @@ public abstract class AbstractApexCodegen extends DefaultCodegen implements Code
     protected Boolean serializableModel = false;
 
     public AbstractApexCodegen() {
-        super();
     }
 
     @Override

@@ -59,8 +59,6 @@ abstract public class AbstractCppCodegen extends DefaultCodegen implements Codeg
     protected boolean variableNameFirstCharacterUppercase = true;
 
     public AbstractCppCodegen() {
-        super();
-
         /*
          * Reserved words.  Override this with reserved words specific to your language
          */

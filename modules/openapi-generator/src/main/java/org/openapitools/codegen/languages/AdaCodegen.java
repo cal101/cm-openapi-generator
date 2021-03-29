@@ -34,7 +34,6 @@ import java.util.Locale;
 public class AdaCodegen extends AbstractAdaCodegen implements CodegenConfig {
 
     public AdaCodegen() {
-        super();
     }
 
     @Override

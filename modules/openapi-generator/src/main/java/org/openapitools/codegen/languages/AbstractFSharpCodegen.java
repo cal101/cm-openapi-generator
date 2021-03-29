@@ -79,8 +79,6 @@ public abstract class AbstractFSharpCodegen extends DefaultCodegen implements Co
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractFSharpCodegen.class);
 
     public AbstractFSharpCodegen() {
-        super();
-
         supportsInheritance = true;
 
         importMapping.clear();

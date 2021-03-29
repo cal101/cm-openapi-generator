@@ -75,8 +75,6 @@ public abstract class AbstractTypeScriptClientCodegen extends DefaultCodegen imp
     protected String classEnumSeparator = ".";
 
     public AbstractTypeScriptClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))

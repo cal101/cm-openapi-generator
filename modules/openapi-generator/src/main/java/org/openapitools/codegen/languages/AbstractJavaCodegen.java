@@ -115,8 +115,6 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     protected boolean openApiNullable = true;
 
     public AbstractJavaCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))

@@ -86,8 +86,6 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractCSharpCodegen.class);
 
     public AbstractCSharpCodegen() {
-        super();
-
         supportsInheritance = true;
 
         // C# does not use import mapping

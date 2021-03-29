@@ -52,8 +52,6 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractJavaJAXRSServerCodegen.class);
 
     public AbstractJavaJAXRSServerCodegen() {
-        super();
-
         sourceFolder = "src/gen/java";
         invokerPackage = "org.openapitools.api";
         artifactId = "openapi-jaxrs-server";

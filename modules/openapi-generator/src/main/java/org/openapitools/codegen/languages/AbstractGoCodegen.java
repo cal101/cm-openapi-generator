@@ -51,8 +51,6 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
     protected boolean usesOptionals = true;
 
     public AbstractGoCodegen() {
-        super();
-
         supportsInheritance = true;
         hideGenerationTimestamp = Boolean.FALSE;
 

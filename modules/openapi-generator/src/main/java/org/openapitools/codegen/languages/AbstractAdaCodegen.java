@@ -54,8 +54,6 @@ abstract public class AbstractAdaCodegen extends DefaultCodegen implements Codeg
     protected int scopeIndex = 0;
 
     public AbstractAdaCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))
