@@ -375,9 +375,9 @@ public class ModelUtils {
     }
 
     @FunctionalInterface
-    private static interface OpenAPISchemaVisitor {
+    private interface OpenAPISchemaVisitor {
 
-        public void visit(Schema schema, String mimeType);
+        void visit(Schema schema, String mimeType);
     }
 
     public static String getSimpleRef(String ref) {
