@@ -890,9 +890,9 @@ public class CodeGenMojo extends AbstractMojo {
             if (value != null) {
                 if (value instanceof String) {
                     String stringValue = (String) value;
-                    if (stringValue.equalsIgnoreCase("true")) {
+                    if ("true".equalsIgnoreCase(stringValue)) {
                         configAdditionalProperties.put(key, Boolean.TRUE);
-                    } else if (stringValue.equalsIgnoreCase("false")) {
+                    } else if ("false".equalsIgnoreCase(stringValue)) {
                         configAdditionalProperties.put(key, Boolean.FALSE);
                     }
                 }

@@ -170,9 +170,9 @@ public class ApexClientCodegen extends AbstractApexCodegen {
                 sanitized + ".namedCredential-meta.xml"
         ));
 
-        if (additionalProperties.get(BUILD_METHOD).equals("sfdx")) {
+        if ("sfdx".equals(additionalProperties.get(BUILD_METHOD))) {
             generateSfdxSupportingFiles();
-        } else if (additionalProperties.get(BUILD_METHOD).equals("ant")) {
+        } else if ("ant".equals(additionalProperties.get(BUILD_METHOD))) {
             generateAntSupportingFiles();
         }
     }
@@ -254,7 +254,7 @@ public class ApexClientCodegen extends AbstractApexCodegen {
     }
 
     public void setBuildMethod(String buildMethod) {
-        if (buildMethod.equals("ant")) {
+        if ("ant".equals(buildMethod)) {
             this.srcPath = "deploy/";
         }
         this.buildMethod = buildMethod;

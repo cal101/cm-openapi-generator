@@ -642,7 +642,7 @@ public abstract class AbstractPythonConnexionServerCodegen extends AbstractPytho
             if (operation.produces != null) {
                 for (Map<String, String> produce : operation.produces) {
                     operation.vendorExtensions.put("x-prefered-produce", produce);
-                    if (produce.get(MEDIA_TYPE).equals("application/json")) {
+                    if ("application/json".equals(produce.get(MEDIA_TYPE))) {
                         break;
                     }
                 }
@@ -652,7 +652,7 @@ public abstract class AbstractPythonConnexionServerCodegen extends AbstractPytho
             }
             if (operation.requestBodyExamples != null) {
                 for (Map<String, String> example : operation.requestBodyExamples) {
-                    if (example.get("contentType") != null && example.get("contentType").equals("application/json")) {
+                    if (example.get("contentType") != null && "application/json".equals(example.get("contentType"))) {
                         operation.bodyParam.example = example.get("example");
                     }
                 }

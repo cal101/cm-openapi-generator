@@ -70,7 +70,7 @@ public final class ValidationResult {
         return validations.stream()
                 .filter(it -> !it.isValid())
                 .map(it -> (Invalid)it)
-                .filter(it -> it.getSeverity().equals(Severity.ERROR))
+                .filter(it -> Severity.ERROR.equals(it.getSeverity()))
                 .collect(Collectors.toList());
     }
 
@@ -83,7 +83,7 @@ public final class ValidationResult {
         return validations.stream()
                 .filter(it -> !it.isValid())
                 .map(it -> (Invalid)it)
-                .filter(it -> it.getSeverity().equals(Severity.WARNING))
+                .filter(it -> Severity.WARNING.equals(it.getSeverity()))
                 .collect(Collectors.toList());
     }
 

@@ -942,7 +942,7 @@ public class DefaultGenerator implements Generator {
 
             // TemplateFileType.SupportingFiles
             userDefinedTemplates.stream()
-                    .filter(i -> i.getTemplateType().equals(TemplateFileType.SupportingFiles))
+                    .filter(i -> TemplateFileType.SupportingFiles.equals(i.getTemplateType()))
                     .forEach(userDefinedTemplate -> {
                         SupportingFile newFile = new SupportingFile(
                                 userDefinedTemplate.getTemplateFile(),
@@ -962,7 +962,7 @@ public class DefaultGenerator implements Generator {
 
             // Others, excluding TemplateFileType.SupportingFiles
             userDefinedTemplates.stream()
-                    .filter(i -> !i.getTemplateType().equals(TemplateFileType.SupportingFiles))
+                    .filter(i -> !TemplateFileType.SupportingFiles.equals(i.getTemplateType()))
                     .forEach(userDefinedTemplate -> {
                         // determine file extension…
                         // if template is in format api.ts.mustache, we'll extract .ts
@@ -1295,7 +1295,7 @@ public class DefaultGenerator implements Generator {
                 SecurityScheme securityScheme = securitySchemes.get(key);
                 if (securityScheme != null) {
 
-                    if (securityScheme.getType().equals(SecurityScheme.Type.OAUTH2)) {
+                    if (SecurityScheme.Type.OAUTH2.equals(securityScheme.getType())) {
                         OAuthFlows oautUpdatedFlows = new OAuthFlows();
                         oautUpdatedFlows.extensions(securityScheme.getFlows().getExtensions());
 
@@ -1462,7 +1462,7 @@ public class DefaultGenerator implements Generator {
                     // as documented for symlinks. So we need to trim any / or ./ from the start,
                     // as nobody should be generating into system root and our expectation is no ./
                     String relativePath = removeStart(removeStart(f.toString(), "." + File.separator), File.separator);
-                    if (File.separator.equals("\\")) {
+                    if ("\\".equals(File.separator)) {
                         // ensure that windows outputs same FILES format
                         relativePath = relativePath.replace(File.separator, "/");
                     }

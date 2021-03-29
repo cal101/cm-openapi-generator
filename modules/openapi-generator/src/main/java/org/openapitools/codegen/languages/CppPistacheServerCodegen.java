@@ -266,7 +266,7 @@ public class CppPistacheServerCodegen extends AbstractCppCodegen {
             }
             if (op.consumes != null) {
                 for (Map<String, String> consume : op.consumes) {
-                    if (consume.get("mediaType") != null && consume.get("mediaType").equals("application/json")) {
+                    if (consume.get("mediaType") != null && "application/json".equals(consume.get("mediaType"))) {
                         consumeJson = true;
                     }
                 }

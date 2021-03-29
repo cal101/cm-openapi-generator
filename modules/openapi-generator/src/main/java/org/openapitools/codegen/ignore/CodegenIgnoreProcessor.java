@@ -182,7 +182,7 @@ public class CodegenIgnoreProcessor {
 
                 // At this point exclude=true means the file should be ignored.
                 // op == INCLUDE means we have to flip that flag.
-                if(op.equals(Rule.Operation.INCLUDE)) {
+                if(Rule.Operation.INCLUDE.equals(op)) {
                     if(current instanceof DirectoryRule && directoryExcluded) {
                         // e.g
                         // baz/

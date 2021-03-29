@@ -468,7 +468,7 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
                             continue;
                         }
 
-                        if(consumesString.toString().equals("")) {
+                        if("".equals(consumesString.toString())) {
                             consumesString = new StringBuilder("\"" + consume.get("mediaType") + "\"");
                         }
                         else {
@@ -476,7 +476,7 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
                         }
 
                         // In a multipart/form-data consuming context binary data is best handled by an IFormFile
-                        if (!consume.get("mediaType").equals("multipart/form-data")) {
+                        if (!"multipart/form-data".equals(consume.get("mediaType"))) {
                             continue;
                         }
 
@@ -496,7 +496,7 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
                         }
                     }
 
-                    if(!consumesString.toString().equals("")) {
+                    if(!"".equals(consumesString.toString())) {
                         operation.vendorExtensions.put("x-aspnetcore-consumes", consumesString.toString());
                     }
                 }
