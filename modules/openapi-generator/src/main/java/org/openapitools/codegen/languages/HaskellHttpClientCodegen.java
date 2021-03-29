@@ -773,24 +773,13 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
     public void updateGlobalAdditionalProps() {
         additionalProperties.put(X_HAS_UNKNOWN_MIME_TYPES, !unknownMimeTypes.isEmpty());
 
-        Collections.sort(unknownMimeTypes, new Comparator<Map<String, String>>() {
-            @Override
-            public int compare(Map<String, String> o1, Map<String, String> o2) {
-                return o1.get(MEDIA_TYPE).compareTo(o2.get(MEDIA_TYPE));
-            }
-        });
+        Collections.sort(unknownMimeTypes, (o1, o2) -> o1.get(MEDIA_TYPE).compareTo(o2.get(MEDIA_TYPE)));
         additionalProperties.put(VENDOR_EXTENSION_X_UNKNOWN_MIME_TYPES, unknownMimeTypes);
 
         ArrayList<Map<String, Object>> params = new ArrayList<>(uniqueParamNameTypes.values());
-        Collections.sort(params, new Comparator<Map<String, Object>>() {
-            @Override
-            public int compare(Map<String, Object> o1, Map<String, Object> o2) {
-                return
-                        ((String) o1.get(VENDOR_EXTENSION_X_PARAM_NAME_TYPE))
-                                .compareTo(
-                                        (String) o2.get(VENDOR_EXTENSION_X_PARAM_NAME_TYPE));
-            }
-        });
+        Collections.sort(params, (o1, o2) -> ((String) o1.get(VENDOR_EXTENSION_X_PARAM_NAME_TYPE))
+		        .compareTo(
+		                (String) o2.get(VENDOR_EXTENSION_X_PARAM_NAME_TYPE)));
         additionalProperties.put(X_ALL_UNIQUE_PARAMS, params);
     }
 

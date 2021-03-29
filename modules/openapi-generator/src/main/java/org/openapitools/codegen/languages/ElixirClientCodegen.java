@@ -17,8 +17,6 @@
 
 package org.openapitools.codegen.languages;
 
-import com.samskivert.mustache.Mustache;
-import com.samskivert.mustache.Template;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.media.ArraySchema;
@@ -31,9 +29,9 @@ import org.openapitools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.samskivert.mustache.Mustache.Lambda;
+
 import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -247,18 +245,8 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
         additionalProperties.put("supportedElixirVersion", supportedElixirVersion);
         additionalProperties.put("extraApplications", join(",", extraApplications));
         additionalProperties.put("deps", deps);
-        additionalProperties.put("underscored", new Mustache.Lambda() {
-            @Override
-            public void execute(Template.Fragment fragment, Writer writer) throws IOException {
-                writer.write(underscored(fragment.execute()));
-            }
-        });
-        additionalProperties.put("modulized", new Mustache.Lambda() {
-            @Override
-            public void execute(Template.Fragment fragment, Writer writer) throws IOException {
-                writer.write(modulized(fragment.execute()));
-            }
-        });
+        additionalProperties.put("underscored", (Lambda) (fragment, writer) -> writer.write(underscored(fragment.execute())));
+        additionalProperties.put("modulized", (Lambda) (fragment, writer) -> writer.write(modulized(fragment.execute())));
 
         if (additionalProperties.containsKey(CodegenConstants.INVOKER_PACKAGE)) {
             setModuleName((String) additionalProperties.get(CodegenConstants.INVOKER_PACKAGE));

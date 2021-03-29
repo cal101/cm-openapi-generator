@@ -2586,14 +2586,11 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (sortModelPropertiesByRequiredFlag) {
-            Comparator<CodegenProperty> comparator = new Comparator<CodegenProperty>() {
-                @Override
-                public int compare(CodegenProperty one, CodegenProperty another) {
-                    if (one.required == another.required) return 0;
-                    else if (one.required) return -1;
-                    else return 1;
-                }
-            };
+            Comparator<CodegenProperty> comparator = (one, another) -> {
+			    if (one.required == another.required) return 0;
+			    else if (one.required) return -1;
+			    else return 1;
+			};
             Collections.sort(m.vars, comparator);
             Collections.sort(m.allVars, comparator);
         }
@@ -3901,17 +3898,14 @@ public class DefaultCodegen implements CodegenConfig {
 
         // move "required" parameters in front of "optional" parameters
         if (sortParamsByRequiredFlag) {
-            Collections.sort(allParams, new Comparator<CodegenParameter>() {
-                @Override
-                public int compare(CodegenParameter one, CodegenParameter another) {
-                    if (one.required == another.required)
-                        return 0;
-                    else if (one.required)
-                        return -1;
-                    else
-                        return 1;
-                }
-            });
+            Collections.sort(allParams, (one, another) -> {
+			    if (one.required == another.required)
+			        return 0;
+			    else if (one.required)
+			        return -1;
+			    else
+			        return 1;
+			});
         }
 
         op.allParams = allParams;
@@ -4545,12 +4539,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         // sort auth methods to maintain the same order
-        Collections.sort(codegenSecurities, new Comparator<CodegenSecurity>() {
-            @Override
-            public int compare(CodegenSecurity one, CodegenSecurity another) {
-                return ObjectUtils.compare(one.name, another.name);
-            }
-        });
+        Collections.sort(codegenSecurities, (one, another) -> ObjectUtils.compare(one.name, another.name));
 
         return codegenSecurities;
     }

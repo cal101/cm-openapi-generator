@@ -17,8 +17,6 @@
 
 package org.openapitools.codegen.languages;
 
-import com.samskivert.mustache.Mustache;
-import com.samskivert.mustache.Template;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.CodegenConstants;
@@ -26,9 +24,9 @@ import org.openapitools.codegen.CodegenType;
 import org.openapitools.codegen.SupportingFile;
 import org.openapitools.codegen.meta.features.*;
 
+import com.samskivert.mustache.Mustache.Lambda;
+
 import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
 import java.util.Locale;
 
 public class AdaCodegen extends AbstractAdaCodegen implements CodegenConfig {
@@ -143,14 +141,11 @@ public class AdaCodegen extends AbstractAdaCodegen implements CodegenConfig {
         additionalProperties.put("packageName", toFilename(pkgName));
 
         // add lambda for mustache templates
-        additionalProperties.put("lambdaAdaComment", new Mustache.Lambda() {
-            @Override
-            public void execute(Template.Fragment fragment, Writer writer) throws IOException {
-                String content = fragment.execute();
-                content = content.trim().replaceAll("\n$", "");
-                writer.write(content.replaceAll("\n", "\n   --  "));
-            }
-        });
+        additionalProperties.put("lambdaAdaComment", (Lambda) (fragment, writer) -> {
+		    String content = fragment.execute();
+		    content = content.trim().replaceAll("\n$", "");
+		    writer.write(content.replaceAll("\n", "\n   --  "));
+		});
     }
 
     @Override

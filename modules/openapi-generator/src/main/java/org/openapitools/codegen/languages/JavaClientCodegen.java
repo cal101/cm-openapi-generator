@@ -627,19 +627,16 @@ public class JavaClientCodegen extends AbstractJavaCodegen
 
                     // sorting operation parameters to make sure path params are parsed before query params
                     if (operation.allParams != null) {
-                        sort(operation.allParams, new Comparator<CodegenParameter>() {
-                            @Override
-                            public int compare(CodegenParameter one, CodegenParameter another) {
-                                if (one.isPathParam && another.isQueryParam) {
-                                    return -1;
-                                }
-                                if (one.isQueryParam && another.isPathParam) {
-                                    return 1;
-                                }
+                        sort(operation.allParams, (one, another) -> {
+						    if (one.isPathParam && another.isQueryParam) {
+						        return -1;
+						    }
+						    if (one.isQueryParam && another.isPathParam) {
+						        return 1;
+						    }
 
-                                return 0;
-                            }
-                        });
+						    return 0;
+						});
                     }
                 }
             }

@@ -289,22 +289,19 @@ public abstract class AbstractScalaCodegen extends DefaultCodegen {
 
     @Override
     public Mustache.Compiler processCompiler(Mustache.Compiler compiler) {
-        Mustache.Escaper SCALA = new Mustache.Escaper() {
-            @Override
-            public String escape(String text) {
-                // Fix included as suggested by akkie in #6393
-                // The given text is a reserved word which is escaped by enclosing it with grave accents. If we would
-                // escape that with the default Mustache `HTML` escaper, then the escaper would also escape our grave
-                // accents. So we remove the grave accents before the escaping and add it back after the escaping.
-                if (text.startsWith("`") && text.endsWith("`")) {
-                    String unescaped = text.substring(1, text.length() - 1);
-                    return "`" + Escapers.HTML.escape(unescaped) + "`";
-                }
+        Mustache.Escaper SCALA = text -> {
+		    // Fix included as suggested by akkie in #6393
+		    // The given text is a reserved word which is escaped by enclosing it with grave accents. If we would
+		    // escape that with the default Mustache `HTML` escaper, then the escaper would also escape our grave
+		    // accents. So we remove the grave accents before the escaping and add it back after the escaping.
+		    if (text.startsWith("`") && text.endsWith("`")) {
+		        String unescaped = text.substring(1, text.length() - 1);
+		        return "`" + Escapers.HTML.escape(unescaped) + "`";
+		    }
 
-                // All none reserved words will be escaped with the default Mustache `HTML` escaper
-                return Escapers.HTML.escape(text);
-            }
-        };
+		    // All none reserved words will be escaped with the default Mustache `HTML` escaper
+		    return Escapers.HTML.escape(text);
+		};
 
         return compiler.withEscaper(SCALA);
     }

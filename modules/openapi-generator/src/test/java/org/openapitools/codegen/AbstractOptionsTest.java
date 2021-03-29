@@ -69,12 +69,7 @@ public abstract class AbstractOptionsTest {
     }
 
     private static Function<CliOption, String> getCliOptionTransformer() {
-        return new Function<CliOption, String>() {
-            @Override
-            public String apply(CliOption option) {
-                return option.getOpt();
-            }
-        };
+        return option -> option.getOpt();
     }
 
     protected abstract CodegenConfig getCodegenConfig();

@@ -404,12 +404,7 @@ public class CSharpNancyFXServerCodegen extends AbstractCSharpCodegen {
     }
 
     private static Predicate<Schema> timeProperty() {
-        return new Predicate<Schema>() {
-            @Override
-            public boolean apply(Schema property) {
-                return ModelUtils.isStringSchema(property) && "time".equalsIgnoreCase(property.getFormat());
-            }
-        };
+        return property -> ModelUtils.isStringSchema(property) && "time".equalsIgnoreCase(property.getFormat());
     }
 
     private static Map<String, String> nodaTimeTypesMappings() {

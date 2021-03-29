@@ -1341,11 +1341,7 @@ public class RustServerCodegen extends DefaultCodegen implements CodegenConfig {
         // index, and then add it to the objects that we're about to pass to
         // the templates to process.
         List<Map.Entry<String, Map<String, String>>> pathSetEntryList = new ArrayList(pathSetMap.entrySet());
-        Collections.sort(pathSetEntryList, new Comparator<Map.Entry<String, Map<String, String>>>() {
-            public int compare(Map.Entry<String, Map<String, String>> a, Map.Entry<String, Map<String, String>> b) {
-                return a.getValue().get("path").compareTo(b.getValue().get("path"));
-            }
-        });
+        Collections.sort(pathSetEntryList, (a, b) -> a.getValue().get("path").compareTo(b.getValue().get("path")));
         List pathSet = new ArrayList<Map<String, String>>();
         int index = 0;
         for (Map.Entry<String, Map<String, String>> pathSetEntry : pathSetEntryList) {

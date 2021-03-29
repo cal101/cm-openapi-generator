@@ -16,8 +16,6 @@
 
 package org.openapitools.codegen.languages;
 
-import com.samskivert.mustache.Mustache;
-import com.samskivert.mustache.Template;
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.openapitools.codegen.*;
@@ -26,9 +24,9 @@ import org.openapitools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.samskivert.mustache.Mustache.Lambda;
+
 import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -228,19 +226,9 @@ public class ErlangProperCodegen extends DefaultCodegen implements CodegenConfig
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         additionalProperties.put(CodegenConstants.PACKAGE_VERSION, packageVersion);
 
-        additionalProperties.put("length", new Mustache.Lambda() {
-            @Override
-            public void execute(Template.Fragment fragment, Writer writer) throws IOException {
-                writer.write(length(fragment.context()));
-            }
-        });
+        additionalProperties.put("length", (Lambda) (fragment, writer) -> writer.write(length(fragment.context())));
 
-        additionalProperties.put("qsEncode", new Mustache.Lambda() {
-            @Override
-            public void execute(Template.Fragment fragment, Writer writer) throws IOException {
-                writer.write(qsEncode(fragment.context()));
-            }
-        });
+        additionalProperties.put("qsEncode", (Lambda) (fragment, writer) -> writer.write(qsEncode(fragment.context())));
 
         modelPackage = packageName;
         apiPackage = packageName;

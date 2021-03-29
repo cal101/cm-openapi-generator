@@ -174,14 +174,11 @@ public class PhpSlimServerCodegen extends AbstractPhpCodegen {
 
             // Sort operations to avoid static routes shadowing
             // ref: https://github.com/nikic/FastRoute/blob/master/src/DataGenerator/RegexBasedAbstract.php#L92-L101
-            Collections.sort(operationList, new Comparator<CodegenOperation>() {
-                @Override
-                public int compare(CodegenOperation one, CodegenOperation another) {
-                    if (one.getHasPathParams() && !another.getHasPathParams()) return 1;
-                    if (!one.getHasPathParams() && another.getHasPathParams()) return -1;
-                    return 0;
-                }
-            });
+            Collections.sort(operationList, (one, another) -> {
+			    if (one.getHasPathParams() && !another.getHasPathParams()) return 1;
+			    if (!one.getHasPathParams() && another.getHasPathParams()) return -1;
+			    return 0;
+			});
         }
         return objs;
     }
