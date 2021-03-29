@@ -660,6 +660,6 @@ public class PhpSymfonyServerCodegen extends AbstractPhpCodegen implements Codeg
     }
 
     protected Boolean isModelClass(String type) {
-        return Boolean.valueOf(type.contains(modelPackage()));
+        return type.contains(modelPackage());
     }
 }

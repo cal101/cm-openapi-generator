@@ -358,7 +358,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withVerbose(Boolean verbose) {
-            this.verbose = verbose != null ? verbose : Boolean.valueOf(DEFAULT_VERBOSE);
+            this.verbose = verbose != null ? verbose : DEFAULT_VERBOSE;
             return this;
         }
 
@@ -369,7 +369,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withSkipOverwrite(Boolean skipOverwrite) {
-            this.skipOverwrite = skipOverwrite != null ? skipOverwrite : Boolean.valueOf(DEFAULT_SKIP_OVERWRITE);
+            this.skipOverwrite = skipOverwrite != null ? skipOverwrite : DEFAULT_SKIP_OVERWRITE;
             return this;
         }
 
@@ -380,7 +380,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withRemoveOperationIdPrefix(Boolean removeOperationIdPrefix) {
-            this.removeOperationIdPrefix = removeOperationIdPrefix != null ? removeOperationIdPrefix : Boolean.valueOf(DEFAULT_REMOVE_OPERATION_ID_PREFIX);
+            this.removeOperationIdPrefix = removeOperationIdPrefix != null ? removeOperationIdPrefix : DEFAULT_REMOVE_OPERATION_ID_PREFIX;
             return this;
         }
 
@@ -391,7 +391,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withSkipOperationExample(Boolean skipOperationExample) {
-            this.skipOperationExample = skipOperationExample != null ? skipOperationExample : Boolean.valueOf(DEFAULT_REMOVE_OPERATION_ID_PREFIX);
+            this.skipOperationExample = skipOperationExample != null ? skipOperationExample : DEFAULT_REMOVE_OPERATION_ID_PREFIX;
             return this;
         }
 
@@ -402,7 +402,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withLogToStderr(Boolean logToStderr) {
-            this.logToStderr = logToStderr != null ? logToStderr : Boolean.valueOf(DEFAULT_LOG_TO_STDERR);
+            this.logToStderr = logToStderr != null ? logToStderr : DEFAULT_LOG_TO_STDERR;
             return this;
         }
 
@@ -413,7 +413,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withValidateSpec(Boolean validateSpec) {
-            this.validateSpec = validateSpec != null ? validateSpec : Boolean.valueOf(DEFAULT_VALIDATE_SPEC);
+            this.validateSpec = validateSpec != null ? validateSpec : DEFAULT_VALIDATE_SPEC;
             return this;
         }
 
@@ -424,7 +424,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withEnablePostProcessFile(Boolean enablePostProcessFile) {
-            this.enablePostProcessFile = enablePostProcessFile != null ? enablePostProcessFile : Boolean.valueOf(DEFAULT_ENABLE_POST_PROCESS_FILE);
+            this.enablePostProcessFile = enablePostProcessFile != null ? enablePostProcessFile : DEFAULT_ENABLE_POST_PROCESS_FILE;
             return this;
         }
 
@@ -435,7 +435,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withEnableMinimalUpdate(Boolean enableMinimalUpdate) {
-            this.enableMinimalUpdate = enableMinimalUpdate != null ? enableMinimalUpdate : Boolean.valueOf(DEFAULT_ENABLE_MINIMAL_UPDATE);
+            this.enableMinimalUpdate = enableMinimalUpdate != null ? enableMinimalUpdate : DEFAULT_ENABLE_MINIMAL_UPDATE;
             return this;
         }
 
@@ -446,7 +446,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withStrictSpecBehavior(Boolean strictSpecBehavior) {
-            this.strictSpecBehavior = strictSpecBehavior != null ? strictSpecBehavior : Boolean.valueOf(DEFAULT_STRICT_SPEC_BEHAVIOR);
+            this.strictSpecBehavior = strictSpecBehavior != null ? strictSpecBehavior : DEFAULT_STRICT_SPEC_BEHAVIOR;
             return this;
         }
 
@@ -458,7 +458,7 @@ public class WorkflowSettings {
          * @return a reference to this Builder
          */
         public Builder withGenerateAliasAsModel(Boolean generateAliasAsModel) {
-            this.generateAliasAsModel = generateAliasAsModel != null ? generateAliasAsModel : Boolean.valueOf(DEFAULT_GENERATE_ALIAS_AS_MODEL);
+            this.generateAliasAsModel = generateAliasAsModel != null ? generateAliasAsModel : DEFAULT_GENERATE_ALIAS_AS_MODEL;
             return this;
         }
 
