@@ -61,8 +61,8 @@ public class RootedFileRule extends Rule {
                 // TODO: Evaluate any other escape requirements here.
                 Pattern regex = Pattern.compile(
                         definedFilename
-                                .replaceAll(Pattern.quote("."), "\\\\Q.\\\\E")
-                                .replaceAll(Pattern.quote("*"), ".*?") // non-greedy match on 0+ any character
+                                .replace(".", "\\Q.\\E")
+                                .replace("*", ".*?") // non-greedy match on 0+ any character
                 );
                 return regex.matcher(filename).matches();
             }

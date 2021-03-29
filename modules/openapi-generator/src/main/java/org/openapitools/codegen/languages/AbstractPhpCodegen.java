@@ -398,7 +398,7 @@ public abstract class AbstractPhpCodegen extends DefaultCodegen implements Codeg
 
     private String toGenericName(String name) {
         // remove [
-        name = name.replaceAll("\\]", "");
+        name = name.replace("]", "");
 
         // Note: backslash ("\\") is allowed for e.g. "\\DateTime"
         name = name.replaceAll("[^\\w\\\\]+", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
@@ -632,9 +632,9 @@ public abstract class AbstractPhpCodegen extends DefaultCodegen implements Codeg
         // number
         if ("int".equals(datatype) || "double".equals(datatype) || "float".equals(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 

@@ -672,7 +672,7 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
 
         // e.g. PhoneNumberApi.py => phone_number_api.py
         return underscore(name + "_" + apiNameSuffix);
@@ -697,6 +697,6 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
     }
 
     protected static String dropDots(String str) {
-        return str.replaceAll("\\.", "_");
+        return str.replace('.', '_');
     }
 }

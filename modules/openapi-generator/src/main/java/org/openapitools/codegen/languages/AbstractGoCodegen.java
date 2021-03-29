@@ -312,7 +312,7 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PetApi.go => pet_api.go
         name = "api_" + underscore(name);
@@ -723,9 +723,9 @@ public abstract class AbstractGoCodegen extends DefaultCodegen implements Codege
         // number
         if (isNumberType(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return NUMERIC_ENUM_PREFIX + varName;
         }
 

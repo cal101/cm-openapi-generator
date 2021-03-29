@@ -107,7 +107,7 @@ public class AdaCodegen extends AbstractAdaCodegen implements CodegenConfig {
         } else {
             // default: set project based on package name
             // e.g. petstore.api (package name) => petstore_api (project name)
-            projectName = packageName.replaceAll("\\.", "_");
+            projectName = packageName.replace('.', '_');
         }
         String configBaseName = modelPackage.toLowerCase(Locale.ROOT);
         supportingFiles.add(new SupportingFile("gnat-project.mustache", "", toFilename(projectName) + ".gpr"));
@@ -148,7 +148,7 @@ public class AdaCodegen extends AbstractAdaCodegen implements CodegenConfig {
             public void execute(Template.Fragment fragment, Writer writer) throws IOException {
                 String content = fragment.execute();
                 content = content.trim().replaceAll("\n$", "");
-                writer.write(content.replaceAll("\n", "\n   --  "));
+                writer.write(content.replace("\n", "\n   --  "));
             }
         });
     }

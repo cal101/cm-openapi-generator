@@ -740,7 +740,7 @@ public class CodeGenMojo extends AbstractMojo {
                 for (CliOption langCliOption : config.cliOptions()) {
                     System.out.println("\t" + langCliOption.getOpt());
                     System.out.println("\t    "
-                            + langCliOption.getOptionHelp().replaceAll("\n", "\n\t    "));
+                            + langCliOption.getOptionHelp().replace("\n", "\n\t    "));
                     System.out.println();
                 }
                 return;
@@ -814,7 +814,7 @@ public class CodeGenMojo extends AbstractMojo {
         ByteSource inputSpecByteSource =
                 inputSpecTempFile.exists()
                         ? Files.asByteSource(inputSpecTempFile)
-                        : CharSource.wrap(ClasspathHelper.loadFileFromClasspath(inputSpecTempFile.toString().replaceAll("\\\\","/")))
+                        : CharSource.wrap(ClasspathHelper.loadFileFromClasspath(inputSpecTempFile.toString().replace('\\','/')))
                         .asByteSource(StandardCharsets.UTF_8);
 
         return inputSpecByteSource.hash(Hashing.sha256()).toString();

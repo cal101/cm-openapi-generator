@@ -699,7 +699,7 @@ public abstract class AbstractFSharpCodegen extends DefaultCodegen implements Co
         name = sanitizeName(name);
 
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_");
+        name = name.replace('-', '_');
 
         // if it's all uppper case, do nothing
         if (name.matches("^[A-Z_]*$")) {

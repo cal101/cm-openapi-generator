@@ -1396,9 +1396,9 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
         if ("Integer".equals(datatype) || "Long".equals(datatype) ||
                 "Float".equals(datatype) || "Double".equals(datatype) || "BigDecimal".equals(datatype)) {
             String varName = "NUMBER_" + value;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 
@@ -1658,7 +1658,7 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
 
     private String sanitizePath(String p) {
         //prefer replace a ", instead of a fuLL URL encode for readability
-        return p.replaceAll("\"", "%22");
+        return p.replace("\"", "%22");
     }
 
     public void setFullJavaUtil(boolean fullJavaUtil) {

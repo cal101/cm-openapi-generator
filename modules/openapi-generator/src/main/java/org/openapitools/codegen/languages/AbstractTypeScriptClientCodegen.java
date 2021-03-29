@@ -640,9 +640,9 @@ public abstract class AbstractTypeScriptClientCodegen extends DefaultCodegen imp
         if ("number".equals(datatype)) {
             String varName = "NUMBER_" + name;
 
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 

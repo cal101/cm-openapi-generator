@@ -4599,8 +4599,8 @@ public class DefaultCodegen implements CodegenConfig {
         String operationId = operation.getOperationId();
         if (StringUtils.isBlank(operationId)) {
             String tmpPath = path;
-            tmpPath = tmpPath.replaceAll("\\{", "");
-            tmpPath = tmpPath.replaceAll("\\}", "");
+            tmpPath = tmpPath.replace("{", "");
+            tmpPath = tmpPath.replace("}", "");
             String[] parts = (tmpPath + "/" + httpMethod).split("/");
             StringBuilder builder = new StringBuilder();
             if ("/".equals(tmpPath)) {
@@ -5303,8 +5303,8 @@ public class DefaultCodegen implements CodegenConfig {
 
             // /api/films/get => _api_films_get
             // \api\films\get => _api_films_get
-            modifiable = modifiable.replaceAll("/", "_");
-            modifiable = modifiable.replaceAll("\\\\", "_");
+            modifiable = modifiable.replace('/', '_');
+            modifiable = modifiable.replace('\\', '_');
 
             // remove everything else other than word, number and _
             // $php_variable => php_variable
@@ -5531,7 +5531,7 @@ public class DefaultCodegen implements CodegenConfig {
         }
 
         if (!pattern.matches("^/.*")) {
-            return "/" + pattern.replaceAll("/", "\\\\/") + "/";
+            return "/" + pattern.replace("/", "\\/") + "/";
         }
 
         return pattern;

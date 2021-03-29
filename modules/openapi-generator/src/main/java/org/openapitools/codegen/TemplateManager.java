@@ -92,7 +92,7 @@ public class TemplateManager implements TemplatingExecutor, TemplateProcessor {
      */
     public static String getCPResourcePath(final String name) {
         if (!"/".equals(File.separator)) {
-            return name.replaceAll(Pattern.quote(File.separator), "/");
+            return name.replace(File.separator, "/");
         }
         return name;
     }

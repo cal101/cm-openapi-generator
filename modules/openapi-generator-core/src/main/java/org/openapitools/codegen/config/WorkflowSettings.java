@@ -482,7 +482,7 @@ public class WorkflowSettings {
                     // HACK: this duplicates TemplateManager.getCPResourcePath a bit. We should probably move that function to core.
                     if (!"/".equals(File.separator)) {
                         // Windows users may pass path specific to OS, but classpath must be "/" separators
-                        cpDir = templateDir.replaceAll(Pattern.quote(File.separator), "/");
+                        cpDir = templateDir.replace(File.separator, "/");
                     } else {
                         cpDir = templateDir;
                     }

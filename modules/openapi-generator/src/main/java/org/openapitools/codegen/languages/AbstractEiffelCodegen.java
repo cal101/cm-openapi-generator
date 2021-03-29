@@ -132,7 +132,7 @@ public abstract class AbstractEiffelCodegen extends DefaultCodegen implements Co
     @Override
     public String toVarName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = sanitizeName(name.replaceAll("-", "_"));
+        name = sanitizeName(name.replace('-', '_'));
 
         // if it's all uppper case, do nothing
         if (name.matches("^[A-Z_]*$")) {
@@ -218,7 +218,7 @@ public abstract class AbstractEiffelCodegen extends DefaultCodegen implements Co
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be
+        name = name.replace('-', '_'); // FIXME: a parameter should not be
         // assigned. Also declare the
         // methods parameters as 'final'.
 

@@ -327,9 +327,9 @@ abstract public class AbstractAdaCodegen extends DefaultCodegen implements Codeg
         else if ("Integer".equals(datatype) || "Long".equals(datatype) ||
                 "Float".equals(datatype) || "Double".equals(datatype)) {
             String varName = "NUMBER_" + value;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             var = varName;
         }
 
@@ -774,7 +774,7 @@ abstract public class AbstractAdaCodegen extends DefaultCodegen implements Codeg
                                 ident = name;
                             }
                             scopeIndex++;
-                            ident = toAdaIdentifier(sanitizeName(ident.replaceAll(":", "_")), "S_");
+                            ident = toAdaIdentifier(sanitizeName(ident.replace(':', '_')), "S_");
                             if (operationsScopes.containsValue(ident)) {
                                 ident = ident + "_" + scopeIndex;
                             }

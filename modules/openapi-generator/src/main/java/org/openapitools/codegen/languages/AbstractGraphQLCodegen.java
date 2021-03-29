@@ -150,7 +150,7 @@ public abstract class AbstractGraphQLCodegen extends DefaultCodegen implements C
     @Override
     public String toVarName(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = sanitizeName(name.replaceAll("-", "_"));
+        name = sanitizeName(name.replace('-', '_'));
 
         // if it's all uppper case, do nothing
         if (name.matches("^[A-Z_]*$"))
@@ -209,7 +209,7 @@ public abstract class AbstractGraphQLCodegen extends DefaultCodegen implements C
     @Override
     public String toApiFilename(String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        name = name.replace('-', '_'); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
         // e.g. PetApi.graphql => pet_api.graphql
         return underscore(name) + "_api";
@@ -371,9 +371,9 @@ public abstract class AbstractGraphQLCodegen extends DefaultCodegen implements C
         // number
         if ("int".equals(datatype) || "double".equals(datatype) || "float".equals(datatype)) {
             String varName = name;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
+            varName = varName.replace("-", "MINUS_");
+            varName = varName.replace("+", "PLUS_");
+            varName = varName.replace(".", "_DOT_");
             return varName;
         }
 
