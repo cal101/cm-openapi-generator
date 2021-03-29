@@ -77,8 +77,6 @@ public class CppRestSdkClientCodegen extends AbstractCppCodegen {
     }
 
     public CppRestSdkClientCodegen() {
-        super();
-
         // TODO: cpp-restsdk maintainer review
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

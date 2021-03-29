@@ -36,9 +36,6 @@ public class CppQt5ClientCodegen extends CppQt5AbstractCodegen implements Codege
     protected boolean optionalProjectFileFlag = true;
 
     public CppQt5ClientCodegen() {
-        super();
-
-
         modifyFeatureSet(features -> features
         .includeDocumentationFeatures(DocumentationFeature.Readme)
         .includeGlobalFeatures(GlobalFeature.ParameterizedServer)

@@ -34,8 +34,6 @@ public class ConfluenceWikiCodegen extends DefaultCodegen implements CodegenConf
     protected String artifactVersion = "1.0.0";
 
     public ConfluenceWikiCodegen() {
-        super();
-
         // TODO: ConfluenceWiki maintainer review
         modifyFeatureSet(features -> features
                 .documentationFeatures(EnumSet.noneOf(DocumentationFeature.class))

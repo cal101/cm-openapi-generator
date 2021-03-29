@@ -58,8 +58,6 @@ public class AndroidClientCodegen extends DefaultCodegen implements CodegenConfi
     protected String modelDocPath = "docs/";
 
     public AndroidClientCodegen() {
-        super();
-
         // TODO: Android client maintainer review.
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

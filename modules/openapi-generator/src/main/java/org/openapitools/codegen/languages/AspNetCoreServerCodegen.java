@@ -87,8 +87,6 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
     private String newtonsoftVersion = "3.0.0";
 
     public AspNetCoreServerCodegen() {
-        super();
-
         // TODO: AspnetCore community review
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

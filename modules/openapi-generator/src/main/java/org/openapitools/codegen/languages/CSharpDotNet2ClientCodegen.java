@@ -39,8 +39,6 @@ public class CSharpDotNet2ClientCodegen extends AbstractCSharpCodegen {
     protected String modelDocPath = "docs/";
 
     public CSharpDotNet2ClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features.includeDocumentationFeatures(DocumentationFeature.Readme));
 
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)

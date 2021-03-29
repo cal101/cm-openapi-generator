@@ -34,8 +34,6 @@ public class AvroSchemaCodegen extends DefaultCodegen implements CodegenConfig {
     protected String packageName = "model";
 
     public AvroSchemaCodegen() {
-        super();
-
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
                 .stability(Stability.BETA)
                 .build();

@@ -47,8 +47,6 @@ public class Apache2ConfigCodegen extends DefaultCodegen implements CodegenConfi
     }
 
     public Apache2ConfigCodegen() {
-        super();
-
         // TODO: Apache2 maintainer review.
         modifyFeatureSet(features -> features
                 .parameterFeatures(EnumSet.of(ParameterFeature.Path))

@@ -198,8 +198,6 @@ public class AsciidocDocumentationCodegen extends DefaultCodegen implements Code
     }
 
     public AsciidocDocumentationCodegen() {
-        super();
-
         // TODO: Asciidoc maintainer review.
         modifyFeatureSet(features -> features
                 .securityFeatures(EnumSet.noneOf(SecurityFeature.class))

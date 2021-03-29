@@ -82,8 +82,6 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
     protected boolean caseInsensitiveResponseHeaders = Boolean.FALSE;
 
     public CSharpClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .securityFeatures(EnumSet.of(

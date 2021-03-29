@@ -30,8 +30,6 @@ public class CppQt5AbstractCodegen extends AbstractCppCodegen implements Codegen
     protected Set<String> nonFrameworkPrimitives = new HashSet<String>();
 
     public CppQt5AbstractCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .excludeWireFormatFeatures(WireFormatFeature.PROTOBUF)
                 .securityFeatures(EnumSet.noneOf(SecurityFeature.class))

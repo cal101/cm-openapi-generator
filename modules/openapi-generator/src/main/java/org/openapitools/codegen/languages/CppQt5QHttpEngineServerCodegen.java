@@ -37,8 +37,6 @@ public class CppQt5QHttpEngineServerCodegen extends CppQt5AbstractCodegen implem
     protected String sourceFolder = "server";
 
     public CppQt5QHttpEngineServerCodegen() {
-        super();
-
         modifyFeatureSet(features -> features.includeDocumentationFeatures(DocumentationFeature.Readme));
 
         // set the output folder here

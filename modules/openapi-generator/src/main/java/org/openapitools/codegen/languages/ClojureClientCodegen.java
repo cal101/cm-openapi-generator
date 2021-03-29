@@ -59,8 +59,6 @@ public class ClojureClientCodegen extends DefaultCodegen implements CodegenConfi
     protected String sourceFolder = "src";
 
     public ClojureClientCodegen() {
-        super();
-
         // TODO: Clojure maintainer review
         modifyFeatureSet(features -> features
                 .excludeDocumentationFeatures(

@@ -67,8 +67,6 @@ public class CSharpNancyFXServerCodegen extends AbstractCSharpCodegen {
     private boolean asyncServer = false;
 
     public CSharpNancyFXServerCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .excludeDocumentationFeatures(DocumentationFeature.Readme)
                 .securityFeatures(EnumSet.noneOf(SecurityFeature.class))

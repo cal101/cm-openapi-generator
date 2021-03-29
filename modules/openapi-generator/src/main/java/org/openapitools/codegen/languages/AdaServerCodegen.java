@@ -33,8 +33,6 @@ import java.util.Locale;
 public class AdaServerCodegen extends AbstractAdaCodegen implements CodegenConfig {
 
     public AdaServerCodegen() {
-        super();
-
         // TODO: Ada maintainer review.
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

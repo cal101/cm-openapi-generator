@@ -49,8 +49,6 @@ public class CLibcurlClientCodegen extends DefaultCodegen implements CodegenConf
     protected static int emptyMethodNameCounter = 0;
 
     public CLibcurlClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(
                         DocumentationFeature.Readme

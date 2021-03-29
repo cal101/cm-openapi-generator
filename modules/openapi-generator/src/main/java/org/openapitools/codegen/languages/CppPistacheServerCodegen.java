@@ -65,8 +65,6 @@ public class CppPistacheServerCodegen extends AbstractCppCodegen {
     }
 
     public CppPistacheServerCodegen() {
-        super();
-
         // TODO: cpp-pistache-server maintainer review
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

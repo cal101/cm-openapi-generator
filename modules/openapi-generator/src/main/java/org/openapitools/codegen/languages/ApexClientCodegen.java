@@ -52,8 +52,6 @@ public class ApexClientCodegen extends AbstractApexCodegen {
     private HashMap<String, Object> primitiveDefaults = new HashMap<String, Object>();
 
     public ApexClientCodegen() {
-        super();
-
         importMapping.clear();
 
         embeddedTemplateDir = templateDir = "apex";

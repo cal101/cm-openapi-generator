@@ -104,8 +104,6 @@ public class CSharpNetCoreClientCodegen extends AbstractCSharpCodegen {
     protected boolean needsUriBuilder = false;
 
     public CSharpNetCoreClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .securityFeatures(EnumSet.of(

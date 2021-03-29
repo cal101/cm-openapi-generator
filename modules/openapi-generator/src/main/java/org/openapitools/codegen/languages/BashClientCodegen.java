@@ -100,8 +100,6 @@ public class BashClientCodegen extends DefaultCodegen implements CodegenConfig {
     }
 
     public BashClientCodegen() {
-        super();
-
         // TODO: Bash maintainer review
         modifyFeatureSet(features -> features
                 .documentationFeatures(EnumSet.of(
