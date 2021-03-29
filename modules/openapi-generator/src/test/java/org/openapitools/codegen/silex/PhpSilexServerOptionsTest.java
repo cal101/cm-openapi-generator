@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class PhpSilexServerOptionsTest extends AbstractOptionsTest {
-    private PhpSilexServerCodegen clientCodegen = mock(PhpSilexServerCodegen.class, mockSettings);
+    private final PhpSilexServerCodegen clientCodegen = mock(PhpSilexServerCodegen.class, mockSettings);
 
     public PhpSilexServerOptionsTest() {
         super(new PhpSilexServerOptionsProvider());

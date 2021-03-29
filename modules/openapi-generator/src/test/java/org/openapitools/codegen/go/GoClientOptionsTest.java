@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 
 public class GoClientOptionsTest extends AbstractOptionsTest {
 
-    private GoDeprecatedClientCodegen clientCodegen = mock(GoDeprecatedClientCodegen.class, mockSettings);
+    private final GoDeprecatedClientCodegen clientCodegen = mock(GoDeprecatedClientCodegen.class, mockSettings);
 
     public GoClientOptionsTest() {
         super(new GoClientOptionsProvider());

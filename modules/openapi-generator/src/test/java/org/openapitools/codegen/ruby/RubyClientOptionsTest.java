@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class RubyClientOptionsTest extends AbstractOptionsTest {
-    private RubyClientCodegen clientCodegen = mock(RubyClientCodegen.class, mockSettings);
+    private final RubyClientCodegen clientCodegen = mock(RubyClientCodegen.class, mockSettings);
 
     public RubyClientOptionsTest() {
         super(new RubyClientOptionsProvider());

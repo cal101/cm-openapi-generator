@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class PerlClientOptionsTest extends AbstractOptionsTest {
-    private PerlClientCodegen clientCodegen = mock(PerlClientCodegen.class, mockSettings);
+    private final PerlClientCodegen clientCodegen = mock(PerlClientCodegen.class, mockSettings);
 
     public PerlClientOptionsTest() {
         super(new PerlClientOptionsProvider());

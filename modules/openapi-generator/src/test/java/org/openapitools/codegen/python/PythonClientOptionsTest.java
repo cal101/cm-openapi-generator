@@ -29,7 +29,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class PythonClientOptionsTest extends AbstractOptionsTest {
-    private PythonLegacyClientCodegen clientCodegen = mock(PythonLegacyClientCodegen.class, mockSettings);
+    private final PythonLegacyClientCodegen clientCodegen = mock(PythonLegacyClientCodegen.class, mockSettings);
 
     public PythonClientOptionsTest() {
         super(new PythonClientOptionsProvider());

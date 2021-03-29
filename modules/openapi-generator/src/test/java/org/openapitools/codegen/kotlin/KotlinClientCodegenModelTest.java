@@ -342,8 +342,8 @@ public class KotlinClientCodegenModelTest {
     }
 
     private static class ModelNameTest {
-        private String expectedName;
-        private String expectedClassName;
+        private final String expectedName;
+        private final String expectedClassName;
 
         private ModelNameTest(String nameAndClass) {
             this.expectedName = nameAndClass;

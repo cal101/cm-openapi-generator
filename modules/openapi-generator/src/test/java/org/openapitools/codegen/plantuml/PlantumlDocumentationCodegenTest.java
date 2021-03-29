@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.util.*;
 
 public class PlantumlDocumentationCodegenTest {
-    private PlantumlDocumentationCodegen plantumlDocumentationCodegen = new PlantumlDocumentationCodegen();
+    private final PlantumlDocumentationCodegen plantumlDocumentationCodegen = new PlantumlDocumentationCodegen();
 
     @Test
     public void simpleEntityTest() {

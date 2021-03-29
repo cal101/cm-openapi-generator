@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class ObjcClientOptionsTest extends AbstractOptionsTest {
-    private ObjcClientCodegen clientCodegen = mock(ObjcClientCodegen.class, mockSettings);
+    private final ObjcClientCodegen clientCodegen = mock(ObjcClientCodegen.class, mockSettings);
 
     public ObjcClientOptionsTest() {
         super(new ObjcClientOptionsProvider());

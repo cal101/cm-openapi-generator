@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class ScalaAkkaClientOptionsTest extends AbstractOptionsTest {
-    private ScalaAkkaClientCodegen clientCodegen = mock(ScalaAkkaClientCodegen.class, mockSettings);
+    private final ScalaAkkaClientCodegen clientCodegen = mock(ScalaAkkaClientCodegen.class, mockSettings);
 
     public ScalaAkkaClientOptionsTest() {
         super(new ScalaAkkaClientOptionsProvider());

@@ -25,7 +25,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class MysqlSchemaOptionsTest extends AbstractOptionsTest {
-    private MysqlSchemaCodegen clientCodegen = mock(MysqlSchemaCodegen.class, mockSettings);
+    private final MysqlSchemaCodegen clientCodegen = mock(MysqlSchemaCodegen.class, mockSettings);
 
     public MysqlSchemaOptionsTest() {
         super(new MysqlSchemaOptionsProvider());

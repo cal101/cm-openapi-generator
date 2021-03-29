@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class PhpLumenServerOptionsTest extends AbstractOptionsTest {
-    private PhpLumenServerCodegen clientCodegen = mock(PhpLumenServerCodegen.class, mockSettings);
+    private final PhpLumenServerCodegen clientCodegen = mock(PhpLumenServerCodegen.class, mockSettings);
 
     public PhpLumenServerOptionsTest() {
         super(new PhpLumenServerOptionsProvider());

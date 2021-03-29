@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class PhpClientOptionsTest extends AbstractOptionsTest {
-    private PhpClientCodegen clientCodegen = mock(PhpClientCodegen.class, mockSettings);
+    private final PhpClientCodegen clientCodegen = mock(PhpClientCodegen.class, mockSettings);
 
     public PhpClientOptionsTest() {
         super(new PhpClientOptionsProvider());

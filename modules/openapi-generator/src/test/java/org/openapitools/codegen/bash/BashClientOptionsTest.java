@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class BashClientOptionsTest extends AbstractOptionsTest {
-    private BashClientCodegen clientCodegen = mock(BashClientCodegen.class, mockSettings);
+    private final BashClientCodegen clientCodegen = mock(BashClientCodegen.class, mockSettings);
 
     public BashClientOptionsTest() {
         super(new BashClientOptionsProvider());

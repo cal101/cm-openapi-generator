@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 
 public class ElixirClientOptionsTest extends AbstractOptionsTest {
 
-    private ElixirClientCodegen clientCodegen = mock(ElixirClientCodegen.class, mockSettings);
+    private final ElixirClientCodegen clientCodegen = mock(ElixirClientCodegen.class, mockSettings);
 
     public ElixirClientOptionsTest() {
         super(new ElixirClientOptionsProvider());

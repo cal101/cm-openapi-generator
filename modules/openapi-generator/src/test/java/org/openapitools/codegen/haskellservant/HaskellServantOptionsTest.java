@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 
 public class HaskellServantOptionsTest extends AbstractOptionsTest {
 
-    private HaskellServantCodegen clientCodegen = mock(HaskellServantCodegen.class, mockSettings);
+    private final HaskellServantCodegen clientCodegen = mock(HaskellServantCodegen.class, mockSettings);
 
     public HaskellServantOptionsTest() {
         super(new HaskellServantOptionsProvider());

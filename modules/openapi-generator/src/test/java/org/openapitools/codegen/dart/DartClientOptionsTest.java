@@ -26,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 public class DartClientOptionsTest extends AbstractOptionsTest {
-    private DartClientCodegen clientCodegen = mock(DartClientCodegen.class, mockSettings);
+    private final DartClientCodegen clientCodegen = mock(DartClientCodegen.class, mockSettings);
 
     public DartClientOptionsTest() {
         super(new DartClientOptionsProvider());

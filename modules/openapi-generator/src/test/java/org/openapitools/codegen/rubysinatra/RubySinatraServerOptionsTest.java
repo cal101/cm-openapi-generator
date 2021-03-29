@@ -25,7 +25,7 @@ import org.openapitools.codegen.options.RubySinatraServerOptionsProvider;
 import static org.mockito.Mockito.mock;
 
 public class RubySinatraServerOptionsTest extends AbstractOptionsTest {
-    private RubySinatraServerCodegen clientCodegen = mock(RubySinatraServerCodegen.class, mockSettings);
+    private final RubySinatraServerCodegen clientCodegen = mock(RubySinatraServerCodegen.class, mockSettings);
 
     public RubySinatraServerOptionsTest() {
         super(new RubySinatraServerOptionsProvider());
