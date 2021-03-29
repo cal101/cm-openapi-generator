@@ -44,7 +44,7 @@ import java.io.Writer;
 public class IndentedLambda implements Mustache.Lambda {
     private final int prefixSpaceCount;
     private final String prefix;
-    private int spaceCode;
+    private final int spaceCode;
 
     /**
      * Constructs a new instance of {@link IndentedLambda}, with an indent count of 4 spaces

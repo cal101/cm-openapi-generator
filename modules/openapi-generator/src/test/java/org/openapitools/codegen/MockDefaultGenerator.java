@@ -42,8 +42,8 @@ public class MockDefaultGenerator extends DefaultGenerator {
     }
 
     //        public static final String INPUT_STREAM_CONTENT = "INPUT STREAM CONTENT";
-    private List<WrittenTemplateBasedFile> templateBasedFiles = new ArrayList<>();
-    private Map<String, String> files = new HashMap<>();
+    private final List<WrittenTemplateBasedFile> templateBasedFiles = new ArrayList<>();
+    private final Map<String, String> files = new HashMap<>();
 
     public MockDefaultGenerator() {
         super(true);
@@ -62,9 +62,9 @@ public class MockDefaultGenerator extends DefaultGenerator {
     }
 
     public static class WrittenTemplateBasedFile {
-        private Map<String, Object> templateData;
-        private String templateName;
-        private String outputFilename;
+        private final Map<String, Object> templateData;
+        private final String templateName;
+        private final String outputFilename;
 
         public WrittenTemplateBasedFile(Map<String, Object> templateData, String templateName, String outputFilename) {
             this.templateData = templateData;

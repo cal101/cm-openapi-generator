@@ -30,8 +30,8 @@ import static org.openapitools.codegen.utils.StringUtils.camelize;
 public class ScalaLagomServerCodegen extends AbstractScalaCodegen implements CodegenConfig {
     private final Logger LOGGER = LoggerFactory.getLogger(ScalaLagomServerCodegen.class);
 
-    private String authScheme = "";
-    private boolean authPreemptive = false;
+    private final String authScheme = "";
+    private final boolean authPreemptive = false;
     protected String groupId = "org.openapitools";
     protected String artifactId = "scala-lagom-server";
     protected String artifactVersion = "1.0.0";

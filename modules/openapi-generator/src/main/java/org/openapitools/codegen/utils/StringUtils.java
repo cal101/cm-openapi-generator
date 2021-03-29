@@ -218,8 +218,8 @@ public class StringUtils {
             }
         }
 
-        private String name;
-        private String appendToReplacement;
+        private final String name;
+        private final String appendToReplacement;
         private Set<String> specialChars;
         private List<String> charactersToAllow;
 

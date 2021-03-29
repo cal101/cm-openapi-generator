@@ -53,7 +53,7 @@ public class RustServerCodegen extends DefaultCodegen implements CodegenConfig {
 
     private final Logger LOGGER = LoggerFactory.getLogger(RustServerCodegen.class);
 
-    private HashMap<String, String> modelXmlNames = new HashMap<String, String>();
+    private final HashMap<String, String> modelXmlNames = new HashMap<String, String>();
 
     private static final String NO_FORMAT = "%%NO_FORMAT";
 

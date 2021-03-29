@@ -166,7 +166,7 @@ public class StaticHtmlGenerator extends DefaultCodegen implements CodegenConfig
         return compiler.withEscaper(Escapers.NONE);
     }
 
-    private Markdown markdownConverter = new Markdown();
+    private final Markdown markdownConverter = new Markdown();
 
     private static final boolean CONVERT_TO_MARKDOWN_VIA_ESCAPE_TEXT = false;
 

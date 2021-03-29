@@ -44,7 +44,7 @@ public class KotlinServerCodegen extends AbstractKotlinCodegen {
     private Boolean compressionFeatureEnabled = true;
 
     // This is here to potentially warn the user when an option is not supoprted by the target framework.
-    private Map<String, List<String>> optionsSupportedPerFramework = new ImmutableMap.Builder<String, List<String>>()
+    private final Map<String, List<String>> optionsSupportedPerFramework = new ImmutableMap.Builder<String, List<String>>()
             .put(Constants.KTOR, Arrays.asList(
                     Constants.AUTOMATIC_HEAD_REQUESTS,
                     Constants.CONDITIONAL_HEADERS,

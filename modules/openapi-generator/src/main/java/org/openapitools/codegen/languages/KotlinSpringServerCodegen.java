@@ -630,8 +630,8 @@ public class KotlinSpringServerCodegen extends AbstractKotlinCodegen
 
     // TODO could probably be made more generic, and moved to the `mustache` package if required by other components.
     private static class EscapeLambda implements Mustache.Lambda {
-        private String from;
-        private String to;
+        private final String from;
+        private final String to;
 
         EscapeLambda(final String from, final String to) {
             this.from = from;

@@ -55,9 +55,9 @@ public class FsharpGiraffeServerCodegen extends AbstractFSharpCodegen {
     private boolean useSwashbuckle = false;
     protected int serverPort = 8080;
     protected String serverHost = "0.0.0.0";
-    private boolean generateBody = true;
-    private String buildTarget = "program";
-    private String projectSdk = SDK_WEB;
+    private final boolean generateBody = true;
+    private final String buildTarget = "program";
+    private final String projectSdk = SDK_WEB;
 
     public FsharpGiraffeServerCodegen() {
         super();

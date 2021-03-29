@@ -55,8 +55,8 @@ public class OCamlClientCodegen extends DefaultCodegen implements CodegenConfig 
     protected String apiFolder = "src/apis";
     protected String modelFolder = "src/models";
 
-    private Map<String, List<String>> enumNames = new HashMap<>();
-    private Map<String, Schema> enumHash = new HashMap<>();
+    private final Map<String, List<String>> enumNames = new HashMap<>();
+    private final Map<String, Schema> enumHash = new HashMap<>();
     private Map<String, String> enumUniqNames;
 
     public CodegenType getTag() {

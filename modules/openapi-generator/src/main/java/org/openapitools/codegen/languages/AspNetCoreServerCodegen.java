@@ -62,7 +62,7 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
     public static final String NEWTONSOFT_VERSION = "newtonsoftVersion";
 
     private String packageGuid = "{" + randomUUID().toString().toUpperCase(Locale.ROOT) + "}";
-    private String userSecretsGuid = randomUUID().toString();
+    private final String userSecretsGuid = randomUUID().toString();
 
     protected Logger LOGGER = LoggerFactory.getLogger(AspNetCoreServerCodegen.class);
 
@@ -71,15 +71,15 @@ public class AspNetCoreServerCodegen extends AbstractCSharpCodegen {
     protected String serverHost = "0.0.0.0";
     protected CliOption swashbuckleVersion = new CliOption(SWASHBUCKLE_VERSION, "Swashbuckle version: 3.0.0, 4.0.0, 5.0.0");
     protected CliOption aspnetCoreVersion = new CliOption(ASPNET_CORE_VERSION, "ASP.NET Core version: 5.0, 3.1, 3.0, 2.2, 2.1, 2.0 (deprecated)");
-    private CliOption classModifier = new CliOption(CLASS_MODIFIER, "Class Modifier for controller classes: Empty string or abstract.");
-    private CliOption operationModifier = new CliOption(OPERATION_MODIFIER, "Operation Modifier can be virtual or abstract");
-    private CliOption modelClassModifier = new CliOption(MODEL_CLASS_MODIFIER, "Model Class Modifier can be nothing or partial");
+    private final CliOption classModifier = new CliOption(CLASS_MODIFIER, "Class Modifier for controller classes: Empty string or abstract.");
+    private final CliOption operationModifier = new CliOption(OPERATION_MODIFIER, "Operation Modifier can be virtual or abstract");
+    private final CliOption modelClassModifier = new CliOption(MODEL_CLASS_MODIFIER, "Model Class Modifier can be nothing or partial");
     private boolean generateBody = true;
-    private CliOption buildTarget = new CliOption("buildTarget", "Target to build an application or library");
+    private final CliOption buildTarget = new CliOption("buildTarget", "Target to build an application or library");
     private String projectSdk = SDK_WEB;
     private String compatibilityVersion = "Version_2_2";
     private boolean operationIsAsync = false;
-    private boolean operationResultTask = false;
+    private final boolean operationResultTask = false;
     private boolean isLibrary = false;
     private boolean useFrameworkReference = false;
     private boolean useNewtonsoft = true;

@@ -52,8 +52,8 @@ public class PythonClientCodegen extends PythonLegacyClientCodegen {
 
     // A cache to efficiently lookup a Schema instance based on the return value of `toModelName()`.
     private Map<String, Schema> modelNameToSchemaCache;
-    private DateTimeFormatter iso8601Date = DateTimeFormatter.ISO_DATE;
-    private DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
+    private final DateTimeFormatter iso8601Date = DateTimeFormatter.ISO_DATE;
+    private final DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
 
     public PythonClientCodegen() {
         super();
