@@ -46,8 +46,6 @@ public class DartDioClientCodegen extends AbstractDartCodegen {
     private String dateLibrary = "core";
 
     public DartDioClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeClientModificationFeatures(
                         ClientModificationFeature.Authorizations,

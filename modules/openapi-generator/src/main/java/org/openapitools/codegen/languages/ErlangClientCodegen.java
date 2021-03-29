@@ -56,8 +56,6 @@ public class ErlangClientCodegen extends DefaultCodegen implements CodegenConfig
     }
 
     public ErlangClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON))
@@ -400,8 +398,6 @@ public class ErlangClientCodegen extends DefaultCodegen implements CodegenConfig
         String arityOptional;
 
         public ExtendedCodegenOperation(CodegenOperation o) {
-            super();
-
             // Copy all fields of CodegenOperation
             this.responseHeaders.addAll(o.responseHeaders);
             this.hasAuthMethods = o.hasAuthMethods;

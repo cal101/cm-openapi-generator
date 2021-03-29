@@ -50,8 +50,6 @@ public class GoClientCodegen extends AbstractGoCodegen {
     protected boolean useOneOfDiscriminatorLookup = false; // use oneOf discriminator's mapping for model lookup
 
     public GoClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))

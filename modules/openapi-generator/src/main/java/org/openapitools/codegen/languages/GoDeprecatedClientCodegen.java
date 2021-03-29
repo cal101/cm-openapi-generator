@@ -45,8 +45,6 @@ public class GoDeprecatedClientCodegen extends AbstractGoCodegen {
     public static final String GENERATE_INTERFACES = "generateInterfaces";
 
     public GoDeprecatedClientCodegen() {
-        super();
-
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata).stability(Stability.DEPRECATED).build();
 
         modifyFeatureSet(features -> features

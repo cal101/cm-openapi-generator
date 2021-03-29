@@ -41,8 +41,6 @@ public class ErlangServerCodegen extends DefaultCodegen implements CodegenConfig
     protected String openApiSpecName = "openapi";
 
     public ErlangServerCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON))

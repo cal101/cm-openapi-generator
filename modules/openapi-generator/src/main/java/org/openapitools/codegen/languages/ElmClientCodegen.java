@@ -61,8 +61,6 @@ public class ElmClientCodegen extends DefaultCodegen implements CodegenConfig {
     }
 
     public ElmClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON))

@@ -43,8 +43,6 @@ public class CppRestbedServerCodegen extends AbstractCppCodegen {
     protected String defaultInclude = "";
 
     public CppRestbedServerCodegen() {
-        super();
-
         // TODO: cpp-restbed-server maintainer review
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

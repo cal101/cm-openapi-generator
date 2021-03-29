@@ -59,8 +59,6 @@ public class EiffelClientCodegen extends AbstractEiffelCodegen {
     }
 
     public EiffelClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .securityFeatures(EnumSet.of(

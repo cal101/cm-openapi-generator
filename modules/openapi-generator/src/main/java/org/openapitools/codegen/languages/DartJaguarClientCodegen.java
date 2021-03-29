@@ -51,8 +51,6 @@ public class DartJaguarClientCodegen extends AbstractDartCodegen {
     private boolean nullableFields = true;
 
     public DartJaguarClientCodegen() {
-        super();
-
         modelToIgnore.add("datetime");
         modelToIgnore.add("map");
         modelToIgnore.add("object");

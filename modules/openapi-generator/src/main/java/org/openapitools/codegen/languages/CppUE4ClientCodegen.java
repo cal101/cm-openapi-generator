@@ -51,8 +51,6 @@ public class CppUE4ClientCodegen extends AbstractCppCodegen {
     protected boolean optionalProjectFileFlag = true;
 
     public CppUE4ClientCodegen() {
-        super();
-
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
                 .stability(Stability.BETA)
                 .build();

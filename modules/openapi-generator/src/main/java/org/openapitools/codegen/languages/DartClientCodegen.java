@@ -36,8 +36,6 @@ public class DartClientCodegen extends AbstractDartCodegen {
     public static final String SERIALIZATION_LIBRARY_JSON_SERIALIZABLE = "json_serializable";
 
     public DartClientCodegen() {
-        super();
-
         additionalReservedWords.addAll(
                 Sets.newHashSet(
                         "StreamedRequest",

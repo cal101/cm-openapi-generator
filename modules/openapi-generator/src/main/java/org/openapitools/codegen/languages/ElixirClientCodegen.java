@@ -59,8 +59,6 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
     );
 
     public ElixirClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .securityFeatures(EnumSet.of(
@@ -554,8 +552,6 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
         public boolean isDefinedDefault;
 
         public ExtendedCodegenResponse(CodegenResponse o) {
-            super();
-
             this.headers.addAll(o.headers);
             this.code = o.code;
             this.message = o.message;
@@ -639,8 +635,6 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
         private String replacedPathName;
 
         public ExtendedCodegenOperation(CodegenOperation o) {
-            super();
-
             // Copy all fields of CodegenOperation
             this.responseHeaders.addAll(o.responseHeaders);
             this.hasAuthMethods = o.hasAuthMethods;
@@ -841,8 +835,6 @@ public class ElixirClientCodegen extends DefaultCodegen implements CodegenConfig
         public boolean hasImports;
 
         public ExtendedCodegenModel(CodegenModel cm) {
-            super();
-
             // Copy all fields of CodegenModel
             this.parent = cm.parent;
             this.parentSchema = cm.parentSchema;

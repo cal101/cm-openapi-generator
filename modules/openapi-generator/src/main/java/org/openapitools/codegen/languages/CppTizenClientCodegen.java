@@ -40,8 +40,6 @@ public class CppTizenClientCodegen extends AbstractCppCodegen implements Codegen
     protected String documentationFolder = "doc";
 
     public CppTizenClientCodegen() {
-        super();
-
         // TODO: cpp-tizen maintainer review
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)

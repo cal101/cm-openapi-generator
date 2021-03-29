@@ -52,8 +52,6 @@ public class DartDioNextClientCodegen extends AbstractDartCodegen {
     private String clientName;
 
     public DartDioNextClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeClientModificationFeatures(
                         ClientModificationFeature.Authorizations,

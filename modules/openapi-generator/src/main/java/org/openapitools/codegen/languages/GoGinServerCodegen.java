@@ -41,8 +41,6 @@ public class GoGinServerCodegen extends AbstractGoCodegen {
     protected String apiPath = "go";
 
     public GoGinServerCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML))

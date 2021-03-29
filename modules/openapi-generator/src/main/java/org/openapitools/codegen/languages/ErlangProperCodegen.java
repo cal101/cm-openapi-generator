@@ -58,8 +58,6 @@ public class ErlangProperCodegen extends DefaultCodegen implements CodegenConfig
     }
 
     public ErlangProperCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON))
@@ -444,8 +442,6 @@ public class ErlangProperCodegen extends DefaultCodegen implements CodegenConfig
         Integer maxItems;
 
         public CodegenArrayModel(CodegenModel cm, ArraySchema schema) {
-            super();
-
             // Copy all fields of CodegenModel
             this.parent = cm.parent;
             this.parentSchema = cm.parentSchema;
@@ -503,8 +499,6 @@ public class ErlangProperCodegen extends DefaultCodegen implements CodegenConfig
         String arity;
 
         ExtendedCodegenOperation(CodegenOperation o) {
-            super();
-
             // Copy all fields of CodegenOperation
             this.responseHeaders.addAll(o.responseHeaders);
             this.hasAuthMethods = o.hasAuthMethods;

@@ -70,8 +70,6 @@ public class CrystalClientCodegen extends DefaultCodegen {
     public static final String SHARD_AUTHOR_EMAIL = "shardAuthorEmail";
 
     public CrystalClientCodegen() {
-        super();
-
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
                 .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML, WireFormatFeature.Custom))

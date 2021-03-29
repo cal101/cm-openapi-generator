@@ -44,8 +44,6 @@ public class FsharpFunctionsServerCodegen extends AbstractFSharpCodegen {
     }
 
     public FsharpFunctionsServerCodegen() {
-        super();
-
         // TODO: There's a README.mustache, but it doesn't seem to be referenced…
         modifyFeatureSet(features -> features
 //                .includeDocumentationFeatures(DocumentationFeature.Readme)

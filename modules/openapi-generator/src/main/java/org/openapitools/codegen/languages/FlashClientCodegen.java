@@ -46,8 +46,6 @@ public class FlashClientCodegen extends DefaultCodegen implements CodegenConfig 
     protected String sourceFolder = "flash";
 
     public FlashClientCodegen() {
-        super();
-
         generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata).stability(Stability.DEPRECATED).build();
 
         modifyFeatureSet(features -> features
