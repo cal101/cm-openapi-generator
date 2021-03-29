@@ -176,12 +176,7 @@ public class PhpLumenServerCodegen extends AbstractPhpCodegen {
         }
 
         // sort the endpoints in ascending to avoid the route priority issure.
-        Collections.sort(operations, new Comparator<CodegenOperation>() {
-            @Override
-            public int compare(CodegenOperation lhs, CodegenOperation rhs) {
-                return lhs.path.compareTo(rhs.path);
-            }
-        });
+        Collections.sort(operations, Comparator.comparing((CodegenOperation lhs) -> lhs.path));
 
         escapeMediaType(operations);
 

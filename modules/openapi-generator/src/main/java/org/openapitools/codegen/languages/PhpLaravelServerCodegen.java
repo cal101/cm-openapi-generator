@@ -260,12 +260,7 @@ public class PhpLaravelServerCodegen extends AbstractPhpCodegen {
 
         // sort the endpoints in ascending to avoid the route priority issure.
         // https://github.com/swagger-api/swagger-codegen/issues/2643
-        Collections.sort(operations, new Comparator<CodegenOperation>() {
-            @Override
-            public int compare(CodegenOperation lhs, CodegenOperation rhs) {
-                return lhs.path.compareTo(rhs.path);
-            }
-        });
+        Collections.sort(operations, Comparator.comparing((CodegenOperation lhs) -> lhs.path));
 
         return objs;
     }
