@@ -270,7 +270,7 @@ public class CppQt5AbstractCodegen extends AbstractCppCodegen implements Codegen
     @Override
     public String toVarName(String name) {
         // sanitize name
-        String varName = name;
+        String varName;
         varName = sanitizeName(name);
 
         // if it's all uppper case, convert to lower case
