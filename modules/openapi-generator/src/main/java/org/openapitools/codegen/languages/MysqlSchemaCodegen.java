@@ -219,7 +219,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
         super.processOpts();
 
         if (additionalProperties.containsKey(DEFAULT_DATABASE_NAME)) {
-            if (additionalProperties.get(DEFAULT_DATABASE_NAME).equals("")) {
+            if ("".equals(additionalProperties.get(DEFAULT_DATABASE_NAME))) {
                 additionalProperties.remove(DEFAULT_DATABASE_NAME);
             } else {
                 this.setDefaultDatabaseName((String) additionalProperties.get(DEFAULT_DATABASE_NAME));
@@ -266,7 +266,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             Map<String, Object> mysqlSchema = new HashMap<String, Object>();
             Map<String, Object> tableDefinition = new HashMap<String, Object>();
 
-            if (this.getIdentifierNamingConvention().equals("snake_case") && !modelName.equals(tableName)) {
+            if ("snake_case".equals(this.getIdentifierNamingConvention()) && !modelName.equals(tableName)) {
                 // add original name in table comment
                 String commentExtra = "Original model name - " + modelName + ".";
                 modelDescription = (modelDescription == null || modelDescription.isEmpty()) ? commentExtra : modelDescription + ". " + commentExtra;
@@ -349,7 +349,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -436,7 +436,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -514,7 +514,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -572,7 +572,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -595,12 +595,12 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
                 String value = String.valueOf(enumValues.get(i));
                 columnDataTypeArguments.add(toCodegenMysqlDataTypeArgument(value));
             }
-        } else if (dataType.equals("MEDIUMBLOB")) {
+        } else if ("MEDIUMBLOB".equals(dataType)) {
             columnDefinition.put("colDataType", "MEDIUMBLOB");
         } else {
             String matchedStringType = getMysqlMatchedStringDataType(minLength, maxLength);
             columnDefinition.put("colDataType", matchedStringType);
-            if (matchedStringType.equals("CHAR") || matchedStringType.equals("VARCHAR")) {
+            if ("CHAR".equals(matchedStringType) || "VARCHAR".equals(matchedStringType)) {
                 columnDefinition.put("colDataTypeArguments", columnDataTypeArguments);
                 columnDataTypeArguments.add(toCodegenMysqlDataTypeArgument((maxLength != null) ? maxLength : 255));
             }
@@ -646,7 +646,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -697,7 +697,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -751,7 +751,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             return;
         }
 
-        if (this.getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(this.getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -819,7 +819,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
      */
     public HashMap<String, Object> toCodegenMysqlDataTypeDefault(String defaultValue, String mysqlDataType) {
         HashMap<String, Object> defaultMap = new HashMap<String, Object>();
-        if (defaultValue == null || defaultValue.toUpperCase(Locale.ROOT).equals("NULL")) {
+        if (defaultValue == null || "NULL".equals(defaultValue.toUpperCase(Locale.ROOT))) {
             defaultMap.put("defaultValue", "NULL");
             defaultMap.put("isString", false);
             defaultMap.put("isNumeric", false);
@@ -834,7 +834,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             case "INT":
             case "BIGINT":
                 // SERIAL DEFAULT VALUE is a special case. In the definition of an integer column, it is an alias for NOT NULL AUTO_INCREMENT UNIQUE
-                if (defaultValue.equals("SERIAL DEFAULT VALUE")) {
+                if ("SERIAL DEFAULT VALUE".equals(defaultValue)) {
                     defaultMap.put("defaultValue", defaultValue);
                     defaultMap.put("isString", false);
                     defaultMap.put("isNumeric", false);
@@ -849,7 +849,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
             case "TIMESTAMP":
             case "DATETIME":
                 // The exception is that, for TIMESTAMP and DATETIME columns, you can specify CURRENT_TIMESTAMP as the default
-                if (defaultValue.equals("CURRENT_TIMESTAMP")) {
+                if ("CURRENT_TIMESTAMP".equals(defaultValue)) {
                     defaultMap.put("defaultValue", defaultValue);
                     defaultMap.put("isString", false);
                     defaultMap.put("isNumeric", false);
@@ -973,7 +973,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
                         mysqlDateAndTimeTypes.contains(dataType.toUpperCase(Locale.ROOT)) ||
                         mysqlStringTypes.contains(dataType.toUpperCase(Locale.ROOT)) ||
                         mysqlSpatialTypes.contains(dataType.toUpperCase(Locale.ROOT)) ||
-                        dataType.toUpperCase(Locale.ROOT).equals("JSON")
+                        "JSON".equals(dataType.toUpperCase(Locale.ROOT))
         );
     }
 
@@ -1002,7 +1002,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
      */
     public String toTableName(String name) {
         String identifier = toMysqlIdentifier(name, tableNamePrefix, tableNameSuffix);
-        if (identifierNamingConvention.equals("snake_case")) {
+        if ("snake_case".equals(identifierNamingConvention)) {
             identifier = underscore(identifier);
         }
         if (identifier.length() > IDENTIFIER_MAX_LENGTH) {
@@ -1021,7 +1021,7 @@ public class MysqlSchemaCodegen extends DefaultCodegen implements CodegenConfig 
      */
     public String toColumnName(String name) {
         String identifier = toMysqlIdentifier(name, columnNamePrefix, columnNameSuffix);
-        if (identifierNamingConvention.equals("snake_case")) {
+        if ("snake_case".equals(identifierNamingConvention)) {
             identifier = underscore(identifier);
         }
         if (identifier.length() > IDENTIFIER_MAX_LENGTH) {

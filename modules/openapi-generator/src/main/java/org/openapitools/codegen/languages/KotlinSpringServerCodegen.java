@@ -348,7 +348,7 @@ public class KotlinSpringServerCodegen extends AbstractKotlinCodegen
         }
         writePropertyBack(USE_BEANVALIDATION, useBeanValidation);
 
-        if (additionalProperties.containsKey(REACTIVE) && library.equals(SPRING_BOOT)) {
+        if (additionalProperties.containsKey(REACTIVE) && SPRING_BOOT.equals(library)) {
             this.setReactive(convertPropertyToBoolean(REACTIVE));
             // spring webflux doesn't support @ControllerAdvice
             this.setExceptionHandler(false);
@@ -410,7 +410,7 @@ public class KotlinSpringServerCodegen extends AbstractKotlinCodegen
                     sanitizeDirectory(sourceFolder + File.separator + apiPackage), "Exceptions.kt"));
         }
 
-        if (library.equals(SPRING_BOOT)) {
+        if (SPRING_BOOT.equals(library)) {
             LOGGER.info("Setup code generator for Kotlin Spring Boot");
             supportingFiles.add(new SupportingFile("pom.mustache", "", "pom.xml"));
 
@@ -444,7 +444,7 @@ public class KotlinSpringServerCodegen extends AbstractKotlinCodegen
 
     @Override
     public void addOperationToGroup(String tag, String resourcePath, Operation operation, CodegenOperation co, Map<String, List<CodegenOperation>> operations) {
-        if (library.equals(SPRING_BOOT) && !useTags) {
+        if (SPRING_BOOT.equals(library) && !useTags) {
             String basePath = resourcePath;
             if (basePath.startsWith("/")) {
                 basePath = basePath.substring(1);
@@ -454,7 +454,7 @@ public class KotlinSpringServerCodegen extends AbstractKotlinCodegen
                 basePath = basePath.substring(0, pos);
             }
 
-            if (basePath.equals("")) {
+            if ("".equals(basePath)) {
                 basePath = "default";
             } else {
                 co.subresourceOperation = !co.path.isEmpty();

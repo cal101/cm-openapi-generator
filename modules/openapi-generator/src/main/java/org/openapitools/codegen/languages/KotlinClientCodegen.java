@@ -657,7 +657,7 @@ public class KotlinClientCodegen extends AbstractKotlinCodegen {
                 // modify the data type of binary form parameters to a more friendly type for multiplatform builds
                 if (MULTIPLATFORM.equals(getLibrary()) && operation.allParams != null) {
                     for (CodegenParameter param : operation.allParams) {
-                        if (param.dataFormat != null && param.dataFormat.equals("binary")) {
+                        if (param.dataFormat != null && "binary".equals(param.dataFormat)) {
                             param.baseType = param.dataType = "io.ktor.client.request.forms.InputProvider";
                         }
                     }

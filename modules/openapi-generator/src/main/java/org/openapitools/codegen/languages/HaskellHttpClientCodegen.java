@@ -869,17 +869,17 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
 
     @Override
     public boolean isDataTypeFile(String dataType) {
-        return dataType != null && dataType.equals("FilePath");
+        return dataType != null && "FilePath".equals(dataType);
     }
 
     @Override
     public boolean isDataTypeBinary(final String dataType) {
-        return dataType != null && dataType.equals("B.ByteString");
+        return dataType != null && "B.ByteString".equals(dataType);
     }
 
     private void processReturnType(CodegenOperation op) {
         String returnType = op.returnType;
-        if (returnType == null || returnType.equals("null")) {
+        if (returnType == null || "null".equals(returnType)) {
             if (op.hasProduces) {
                 returnType = "res";
                 op.vendorExtensions.put(VENDOR_EXTENSION_X_HAS_UNKNOWN_RETURN, true);
@@ -1241,7 +1241,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
     }
 
     static boolean isWildcardMimeType(String mime) {
-        return mime != null && mime.equals("*/*");
+        return mime != null && "*/*".equals(mime);
     }
 
     @Override
@@ -1252,7 +1252,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
             }
         } else if (ModelUtils.isBooleanSchema(p)) {
             if (p.getDefault() != null) {
-                if (p.getDefault().toString().equalsIgnoreCase("false"))
+                if ("false".equalsIgnoreCase(p.getDefault().toString()))
                     return "False";
                 else
                     return "True";
@@ -1277,7 +1277,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
                 }
                 if (dataType != null) {
                     cm.vendorExtensions.put(VENDOR_EXTENSION_X_DATA_TYPE, dataType);
-                    if (dataType.equals("Maybe A.Value")) {
+                    if ("Maybe A.Value".equals(dataType)) {
                         cm.vendorExtensions.put(VENDOR_EXTENSION_X_IS_MAYBE_VALUE, true);
                     }
                 }
@@ -1287,7 +1287,7 @@ public class HaskellHttpClientCodegen extends DefaultCodegen implements CodegenC
                         ? var.datatypeWithEnum
                         : var.dataType;
                 var.vendorExtensions.put(VENDOR_EXTENSION_X_DATA_TYPE, datatype);
-                if (!var.required && datatype.equals("A.Value") || var.required && datatype.equals("Maybe A.Value")) {
+                if (!var.required && "A.Value".equals(datatype) || var.required && "Maybe A.Value".equals(datatype)) {
                     var.vendorExtensions.put(VENDOR_EXTENSION_X_IS_MAYBE_VALUE, true);
                 }
             }

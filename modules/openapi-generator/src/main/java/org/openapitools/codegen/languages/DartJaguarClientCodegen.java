@@ -163,8 +163,8 @@ public class DartJaguarClientCodegen extends AbstractDartCodegen {
 
         if (additionalProperties.containsKey(SERIALIZATION_FORMAT)) {
             String serialization = ((String) additionalProperties.get(SERIALIZATION_FORMAT));
-            boolean isProto = serialization.equalsIgnoreCase(SERIALIZATION_PROTO);
-            additionalProperties.put(IS_FORMAT_JSON, serialization.equalsIgnoreCase(SERIALIZATION_JSON));
+            boolean isProto = SERIALIZATION_PROTO.equalsIgnoreCase(serialization);
+            additionalProperties.put(IS_FORMAT_JSON, SERIALIZATION_JSON.equalsIgnoreCase(serialization));
             additionalProperties.put(IS_FORMAT_PROTO, isProto);
 
             modelTemplateFiles.put("model.mustache", isProto ? ".proto" : ".dart");
@@ -256,29 +256,29 @@ public class DartJaguarClientCodegen extends AbstractDartCodegen {
                 for (Map<String, String> consume : op.consumes) {
                     if (consume.containsKey("mediaType")) {
                         String type = consume.get("mediaType");
-                        isJson = type.equalsIgnoreCase("application/json");
-                        isProto = type.equalsIgnoreCase("application/octet-stream");
-                        isForm = type.equalsIgnoreCase("application/x-www-form-urlencoded");
-                        isMultipart = type.equalsIgnoreCase("multipart/form-data");
+                        isJson = "application/json".equalsIgnoreCase(type);
+                        isProto = "application/octet-stream".equalsIgnoreCase(type);
+                        isForm = "application/x-www-form-urlencoded".equalsIgnoreCase(type);
+                        isMultipart = "multipart/form-data".equalsIgnoreCase(type);
                         break;
                     }
                 }
             }
 
             for (CodegenParameter param : op.allParams) {
-                if (param.baseType != null && param.baseType.equalsIgnoreCase("List<int>") && isMultipart) {
+                if (param.baseType != null && "List<int>".equalsIgnoreCase(param.baseType) && isMultipart) {
                     param.baseType = "MultipartFile";
                     param.dataType = "MultipartFile";
                 }
             }
             for (CodegenParameter param : op.formParams) {
-                if (param.baseType != null && param.baseType.equalsIgnoreCase("List<int>") && isMultipart) {
+                if (param.baseType != null && "List<int>".equalsIgnoreCase(param.baseType) && isMultipart) {
                     param.baseType = "MultipartFile";
                     param.dataType = "MultipartFile";
                 }
             }
             for (CodegenParameter param : op.bodyParams) {
-                if (param.baseType != null && param.baseType.equalsIgnoreCase("List<int>") && isMultipart) {
+                if (param.baseType != null && "List<int>".equalsIgnoreCase(param.baseType) && isMultipart) {
                     param.baseType = "MultipartFile";
                     param.dataType = "MultipartFile";
                 }

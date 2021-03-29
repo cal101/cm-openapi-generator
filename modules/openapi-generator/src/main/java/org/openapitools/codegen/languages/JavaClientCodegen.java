@@ -490,7 +490,7 @@ public class JavaClientCodegen extends AbstractJavaCodegen
             supportingFiles.add(new SupportingFile("api_exception_mapper.mustache", apiExceptionFolder, "ApiExceptionMapper.java"));
             serializationLibrary = "none";
 
-            if (microprofileFramework.equals(MICROPROFILE_KUMULUZEE)) {
+            if (MICROPROFILE_KUMULUZEE.equals(microprofileFramework)) {
                 supportingFiles.add(new SupportingFile("kumuluzee.pom.mustache", "", "pom.xml"));
                 supportingFiles.add(new SupportingFile("kumuluzee.config.yaml.mustache", "src/main/resources", "config.yaml"));
                 supportingFiles.add(new SupportingFile("kumuluzee.beans.xml.mustache", "src/main/resources/META-INF", "beans.xml"));

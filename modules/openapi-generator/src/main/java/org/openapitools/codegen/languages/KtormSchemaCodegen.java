@@ -244,7 +244,7 @@ public class KtormSchemaCodegen extends AbstractKotlinCodegen {
         super.processOpts();
 
         if (additionalProperties.containsKey(DEFAULT_DATABASE_NAME)) {
-            if (additionalProperties.get(DEFAULT_DATABASE_NAME).equals("")) {
+            if ("".equals(additionalProperties.get(DEFAULT_DATABASE_NAME))) {
                 additionalProperties.remove(DEFAULT_DATABASE_NAME);
             } else {
                 setDefaultDatabaseName((String) additionalProperties.get(DEFAULT_DATABASE_NAME));
@@ -293,7 +293,7 @@ public class KtormSchemaCodegen extends AbstractKotlinCodegen {
             Map<String, Object> ktormSchema = new HashMap<String, Object>();
             Map<String, Object> tableDefinition = new HashMap<String, Object>();
 
-            if (getIdentifierNamingConvention().equals("snake_case") && !modelName.equals(tableName)) {
+            if ("snake_case".equals(getIdentifierNamingConvention()) && !modelName.equals(tableName)) {
                 // add original name in table comment
                 String commentExtra = "Original model name - " + modelName + ".";
                 modelDescription = (modelDescription == null || modelDescription.isEmpty()) ? commentExtra : modelDescription + ". " + commentExtra;
@@ -365,7 +365,7 @@ public class KtormSchemaCodegen extends AbstractKotlinCodegen {
 
         vendorExtensions.put(VENDOR_EXTENSION_SCHEMA, ktormSchema);
 
-        if (getIdentifierNamingConvention().equals("snake_case") && !baseName.equals(colName)) {
+        if ("snake_case".equals(getIdentifierNamingConvention()) && !baseName.equals(colName)) {
             // add original name in column comment
             String commentExtra = "Original param name - " + baseName + ".";
             description = (description == null || description.isEmpty()) ? commentExtra : description + ". " + commentExtra;
@@ -947,7 +947,7 @@ public class KtormSchemaCodegen extends AbstractKotlinCodegen {
     private Map<String, Object> toColumnTypeDefault(String defaultValue, String dataType, String dataFormat) {
         String sqlType = toColumnType(dataType, dataFormat);
         String sqlDefault = "";
-        if (defaultValue == null || defaultValue.toUpperCase(Locale.ROOT).equals("NULL")) {
+        if (defaultValue == null || "NULL".equals(defaultValue.toUpperCase(Locale.ROOT))) {
             sqlType = "null";
         }
         //special case for keywords if needed
@@ -1000,7 +1000,7 @@ public class KtormSchemaCodegen extends AbstractKotlinCodegen {
      */
     public String toTableName(String name) {
         String identifier = toIdentifier(name, tableNamePrefix, tableNameSuffix);
-        if (identifierNamingConvention.equals("snake_case")) {
+        if ("snake_case".equals(identifierNamingConvention)) {
             identifier = underscore(identifier);
         }
         if (identifier.length() > IDENTIFIER_MAX_LENGTH) {
@@ -1019,7 +1019,7 @@ public class KtormSchemaCodegen extends AbstractKotlinCodegen {
      */
     public String toColumnName(String name) {
         String identifier = toIdentifier(name, columnNamePrefix, columnNameSuffix);
-        if (identifierNamingConvention.equals("snake_case")) {
+        if ("snake_case".equals(identifierNamingConvention)) {
             identifier = underscore(identifier);
         }
         if (identifier.length() > IDENTIFIER_MAX_LENGTH) {

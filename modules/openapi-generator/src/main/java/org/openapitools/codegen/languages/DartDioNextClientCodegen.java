@@ -338,16 +338,16 @@ public class DartDioNextClientCodegen extends AbstractDartCodegen {
                 for (Map<String, String> consume : op.consumes) {
                     if (consume.containsKey("mediaType")) {
                         String type = consume.get("mediaType");
-                        isJson = type.equalsIgnoreCase("application/json");
-                        isForm = type.equalsIgnoreCase("application/x-www-form-urlencoded");
-                        isMultipart = type.equalsIgnoreCase("multipart/form-data");
+                        isJson = "application/json".equalsIgnoreCase(type);
+                        isForm = "application/x-www-form-urlencoded".equalsIgnoreCase(type);
+                        isMultipart = "multipart/form-data".equalsIgnoreCase(type);
                         break;
                     }
                 }
             }
 
             for (CodegenParameter param : op.bodyParams) {
-                if (param.baseType != null && param.baseType.equalsIgnoreCase("Uint8List") && isMultipart) {
+                if (param.baseType != null && "Uint8List".equalsIgnoreCase(param.baseType) && isMultipart) {
                     param.baseType = "MultipartFile";
                     param.dataType = "MultipartFile";
                 }
